@@ -2,6 +2,8 @@
 
 ## Firebase Hosting and the independent cloud API
 
+Live game: [STAR//SQUARE](https://star-square-kelp.web.app). Firebase project: `star-square-kelp` (Spark, no billing linked). To publish an update, run `npm run build:cloud`, then `npx -y firebase-tools@latest deploy --only hosting`. The default project is recorded in `.firebaserc`.
+
 `npm run build:cloud` builds a static site in `dist/firebase` and a Supabase Edge Function bundle in `dist/edge`. Deploy the static directory with the included `firebase.json` on Firebase's Spark plan; Cloud Functions for Firebase and a billing account are not required. Firebase hosts the website; Supabase runs the API and retains the existing maps, profiles, score replays, and rankings. The Firebase browser client has no Render dependency. School network access depends on the school's policy for the actual Firebase and Supabase addresses.
 
 The public endpoint and publishable application key are in `cloud/hosting-config.json`. These are browser configuration, not server secrets. The Supabase function uses its injected server key internally. Deploy `dist/edge/index.ts` as `star-square-api` with all sibling bundle files. Its gateway JWT check is disabled because the function checks the publishable application key itself. Apply `cloud/state-commit.sql` once before using it.
