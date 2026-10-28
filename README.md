@@ -1,5 +1,17 @@
 # STAR//SQUARE update
 
+## Firebase Hosting and the independent cloud API
+
+`npm run build:cloud` builds a static site in `dist/firebase` and a Supabase Edge Function bundle in `dist/edge`. Deploy the static directory with the included `firebase.json` on Firebase's Spark plan; Cloud Functions for Firebase and a billing account are not required. Firebase hosts the website; Supabase runs the API and retains the existing maps, profiles, score replays, and rankings. The Firebase browser client has no Render dependency. School network access depends on the school's policy for the actual Firebase and Supabase addresses.
+
+The public endpoint and publishable application key are in `cloud/hosting-config.json`. These are browser configuration, not server secrets. The Supabase function uses its injected server key internally. Deploy `dist/edge/index.ts` as `star-square-api` with all sibling bundle files. Its gateway JWT check is disabled because the function checks the publishable application key itself. Apply `cloud/state-commit.sql` once before using it.
+
+Ranked replays are simulated in chunks of 2,000 ticks. An HMAC signature binds each short-lived checkpoint to the complete submitted score and current rules, so changing a checkpoint, replay, or PP claim invalidates verification. The browser continues verification automatically; PP enters the leaderboard only after the final simulation state matches. `node cloud/check.mjs` checks cold-start continuation and rejects modified proofs. Database commits compare version timestamps and update related state documents in one transaction.
+
+The original Node address can use `CLOUD_API_PROXY=1` during migration. It then sends online operations to the same cloud API, including completing checkpoint verification for older browser clients. Its local development default remains the local Node API.
+
+Browser progress belongs to each website address. Choose **Export save** on your current address, then **Import save** on the Firebase address to keep unlocks, equipment, drafts, player identity, and local replays. Import keeps a local backup before replacing the destination browser save. Server records stay in the same database throughout the move.
+
 ## Free cloud hosting: Render + Supabase
 
 Deploy this repository as a Render **Free web service**, with Node 22, build command `npm install`, and start command `npm start`. The `render.yaml` Blueprint contains this configuration. The game and API share the Render URL; GitHub Pages alone cannot run the API.

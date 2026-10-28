@@ -13,6 +13,8 @@ const port = Number(process.env.PORT || 4173);
 const geoCache = new Map();
 const scoreEngine = createEngine().engine;
 const officialLevels = new Map(scoreEngine.levels().map(level => [level.id, level]));
+const cloudProxy = process.env.CLOUD_API_PROXY === '1'
+  ? JSON.parse(await fs.readFile(path.join(root, 'cloud/hosting-config.json'), 'utf8')) : null;
 const requestBuckets = new Map();
 let mutationQueue = Promise.resolve();
 const isoRegionKey = (country, region) => country && region ? `${country}-${region}` : null;
@@ -241,6 +243,24 @@ function topRows(rows, count = 50) { return rows.slice(0, count).map((p, i) => (
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   try {
+    // Keep the previous address usable during migration while all public writes
+    // use the same transactional cloud API as the Firebase-hosted client.
+    if (cloudProxy && url.pathname.startsWith('/api/')) {
+      const payload = req.method === 'POST' ? await body(req) : null;
+      let verification;
+      for (let step = 0; step < 160; step++) {
+        const upstream = await fetch(cloudProxy.apiBase + url.pathname + url.search, {
+          method: req.method, headers: { apikey: cloudProxy.apiKey, 'Content-Type': 'application/json',
+            ...(storageGatewayToken ? { 'x-star-square-server-key': storageGatewayToken, 'x-star-square-client-ip': clientIp(req) } : {}) },
+          ...(payload ? { body: JSON.stringify({ ...payload, ...(verification ? { verification } : {}) }) } : {}),
+          signal: AbortSignal.timeout(30000)
+        });
+        const result = await upstream.json();
+        if (upstream.status === 202 && url.pathname === '/api/scores' && result.verification) { verification = result.verification; continue; }
+        return send(res, upstream.status, result);
+      }
+      return send(res, 503, { error: 'Verification is taking longer than expected; retry your upload' });
+    }
     if (url.pathname === '/api/health' && req.method === 'GET') {
       return send(res, 200, { ok: true, storage: useSupabase ? 'supabase' : requirePersistentStorage ? 'unconfigured' : 'local',
         onlineReady: useSupabase || !requirePersistentStorage });
@@ -336,7 +356,7 @@ const server = http.createServer(async (req, res) => {
       });
       return result ? send(res, 200, result) : send(res, 404, { error: 'Map not found' });
     }
-    if (['/tas-library.js','/tas-library.json','/tas-verification.json','/difficulty.js','/difficulty-catalog.js'].includes(url.pathname)) {
+    if (['/api-config.js','/tas-library.js','/tas-library.json','/tas-verification.json','/difficulty.js','/difficulty-catalog.js'].includes(url.pathname)) {
       const name = url.pathname.slice(1), type = name.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'application/json; charset=utf-8';
       const content = await fs.readFile(path.join(root, name), 'utf8');
       if (type.startsWith('application/json')) return send(res, 200, JSON.parse(content));

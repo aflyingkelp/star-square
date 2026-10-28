@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "public": "dist/firebase",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [{"source":"/api-config.js","headers":[{"key":"Cache-Control","value":"no-store"}]}]
+  }
+}

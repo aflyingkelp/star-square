@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
+    "build:cloud": "node cloud/build.mjs",
     "check": "node --check server.js && node tas-tools/check-runtime.mjs",
     "tas:generate": "node tas-tools/generate.mjs",
     "tas:verify": "node tas-tools/verify.mjs",
