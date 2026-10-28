@@ -1,0 +1,5852 @@
+{
+  "version": 1,
+  "rulesHash": "52eb6bd6",
+  "librarySHA256": "f6c8ab1325081275ca856699903c84cc1ac44c74db0f6c1364c3e5f1eba294ed",
+  "levelCount": 233,
+  "verifiedCount": 233,
+  "allPassed": true,
+  "policy": {
+    "hits": 0,
+    "bombs": 0,
+    "cheats": false,
+    "loadout": "earned-before-rank"
+  },
+  "checks": [
+    "Fresh game instance per tape",
+    "Actual game physics and collision rules",
+    "Earned loadout before the level rank",
+    "No bomb or developer-mode inputs",
+    "Zero recorded hits",
+    "Expected clear tick and state checksum",
+    "Omega 473 exact 240 Hz inputs",
+    "Omega corrupted timing cannot clear",
+    "Persistent player save unchanged"
+  ],
+  "levels": [
+    {
+      "id": "entry",
+      "title": "First Note",
+      "stars": 1,
+      "ticks": 9075,
+      "seconds": 37.8125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "59f786ad",
+      "loadout": {
+        "weapon": "twin",
+        "upgrades": {
+          "power": 1,
+          "fire": 0,
+          "hearts": 0,
+          "bomb": 0,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-1",
+      "title": "Double Tap - 1st Dan",
+      "stars": 1.36,
+      "ticks": 21183,
+      "seconds": 88.2625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4edf733b",
+      "loadout": {
+        "weapon": "twin",
+        "upgrades": {
+          "power": 1,
+          "fire": 0,
+          "hearts": 0,
+          "bomb": 0,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-1",
+      "title": "Grab Circuit - 1st Dan",
+      "stars": 0.92,
+      "ticks": 10591,
+      "seconds": 44.12916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "9eedbb8b",
+      "loadout": {
+        "weapon": "twin",
+        "upgrades": {
+          "power": 1,
+          "fire": 0,
+          "hearts": 0,
+          "bomb": 0,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-1",
+      "title": "Overdrive - 1st Dan",
+      "stars": 1.01,
+      "ticks": 53267,
+      "seconds": 221.94583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a3d2b6e5",
+      "loadout": {
+        "weapon": "twin",
+        "upgrades": {
+          "power": 1,
+          "fire": 0,
+          "hearts": 0,
+          "bomb": 0,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-1",
+      "title": "Falling Lattice - 1st Dan",
+      "stars": 0.99,
+      "ticks": 10603,
+      "seconds": 44.17916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8c216207",
+      "loadout": {
+        "weapon": "twin",
+        "upgrades": {
+          "power": 1,
+          "fire": 0,
+          "hearts": 0,
+          "bomb": 0,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-2",
+      "title": "Jackhammer - 2nd Dan",
+      "stars": 1.81,
+      "ticks": 11215,
+      "seconds": 46.729166666666664,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7dcd2c88",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 1,
+          "fire": 1,
+          "hearts": 0,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-2",
+      "title": "Clockwork Exam - 2nd Dan",
+      "stars": 1.37,
+      "ticks": 7903,
+      "seconds": 32.92916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ababea8e",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 1,
+          "fire": 1,
+          "hearts": 0,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-2",
+      "title": "Quickstep - 2nd Dan",
+      "stars": 1.62,
+      "ticks": 21379,
+      "seconds": 89.07916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "b77b4df3",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 1,
+          "fire": 1,
+          "hearts": 0,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-2",
+      "title": "Breaking Current - 2nd Dan",
+      "stars": 1.43,
+      "ticks": 6687,
+      "seconds": 27.8625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7d63eaae",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 1,
+          "fire": 1,
+          "hearts": 0,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 0,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-3",
+      "title": "Burst Lock - 3rd Dan",
+      "stars": 2.15,
+      "ticks": 7491,
+      "seconds": 31.2125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "2898a38d",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 1,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-3",
+      "title": "Gearshift Lab - 3rd Dan",
+      "stars": 1.95,
+      "ticks": 6939,
+      "seconds": 28.9125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f580fa2e",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 1,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-3",
+      "title": "Velocity Test - 3rd Dan",
+      "stars": 2.3,
+      "ticks": 19695,
+      "seconds": 82.0625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "caa2ceb2",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 1,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-3",
+      "title": "Long Night - 3rd Dan",
+      "stars": 1.94,
+      "ticks": 5655,
+      "seconds": 23.5625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f5a50542",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 1,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 1,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 0
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-4",
+      "title": "Double Tap - 4th Dan",
+      "stars": 3.11,
+      "ticks": 10911,
+      "seconds": 45.4625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5b6fe314",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 2,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-4",
+      "title": "Grab Circuit - 4th Dan",
+      "stars": 2.66,
+      "ticks": 5639,
+      "seconds": 23.495833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e40f86c7",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 2,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-4",
+      "title": "Overdrive - 4th Dan",
+      "stars": 2.5,
+      "ticks": 17119,
+      "seconds": 71.32916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "59f1d321",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 2,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-4",
+      "title": "Falling Lattice - 4th Dan",
+      "stars": 2.35,
+      "ticks": 7731,
+      "seconds": 32.2125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "de52aaaa",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 2,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 1,
+          "dash": 2,
+          "iframe": 0,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-5",
+      "title": "Jackhammer - 5th Dan",
+      "stars": 3.33,
+      "ticks": 5711,
+      "seconds": 23.795833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6704574c",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-5",
+      "title": "Clockwork Exam - 5th Dan",
+      "stars": 3.3,
+      "ticks": 6083,
+      "seconds": 25.345833333333335,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3baf58fc",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-5",
+      "title": "Quickstep - 5th Dan",
+      "stars": 2.91,
+      "ticks": 20255,
+      "seconds": 84.39583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "47046577",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-5",
+      "title": "Breaking Current - 5th Dan",
+      "stars": 2.83,
+      "ticks": 5143,
+      "seconds": 21.429166666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f9b892ea",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 2,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 1,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-6",
+      "title": "Burst Lock - 6th Dan",
+      "stars": 4.23,
+      "ticks": 5939,
+      "seconds": 24.745833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7809193f",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-6",
+      "title": "Gearshift Lab - 6th Dan",
+      "stars": 3.68,
+      "ticks": 5167,
+      "seconds": 21.529166666666665,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "65c5353c",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-6",
+      "title": "Velocity Test - 6th Dan",
+      "stars": 3.59,
+      "ticks": 12515,
+      "seconds": 52.145833333333336,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f5d90209",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-6",
+      "title": "Long Night - 6th Dan",
+      "stars": 3.22,
+      "ticks": 4655,
+      "seconds": 19.395833333333332,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "9159f963",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 1,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-7",
+      "title": "Double Tap - 7th Dan",
+      "stars": 4.76,
+      "ticks": 6127,
+      "seconds": 25.529166666666665,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3bea9e43",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-7",
+      "title": "Grab Circuit - 7th Dan",
+      "stars": 4.15,
+      "ticks": 5323,
+      "seconds": 22.179166666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e41a9185",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-7",
+      "title": "Overdrive - 7th Dan",
+      "stars": 4.05,
+      "ticks": 16319,
+      "seconds": 67.99583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d1f56e36",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-7",
+      "title": "Falling Lattice - 7th Dan",
+      "stars": 4.17,
+      "ticks": 8411,
+      "seconds": 35.045833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "88d06da9",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 2,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-8",
+      "title": "Jackhammer - 8th Dan",
+      "stars": 5.03,
+      "ticks": 6195,
+      "seconds": 25.8125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "fc56b459",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-8",
+      "title": "Clockwork Exam - 8th Dan",
+      "stars": 5.28,
+      "ticks": 25987,
+      "seconds": 108.27916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "60d1a279",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-8",
+      "title": "Quickstep - 8th Dan",
+      "stars": 4.34,
+      "ticks": 25851,
+      "seconds": 107.7125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "04e9f3bf",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-8",
+      "title": "Breaking Current - 8th Dan",
+      "stars": 4.08,
+      "ticks": 5719,
+      "seconds": 23.829166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "005db058",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 1,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-9",
+      "title": "Burst Lock - 9th Dan",
+      "stars": 5.81,
+      "ticks": 6739,
+      "seconds": 28.079166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "189a4b6c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-9",
+      "title": "Gearshift Lab - 9th Dan",
+      "stars": 5,
+      "ticks": 6623,
+      "seconds": 27.595833333333335,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "1a292ad5",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-9",
+      "title": "Velocity Test - 9th Dan",
+      "stars": 5.42,
+      "ticks": 6747,
+      "seconds": 28.1125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "9a82a489",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-9",
+      "title": "Long Night - 9th Dan",
+      "stars": 4.71,
+      "ticks": 6775,
+      "seconds": 28.229166666666668,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "40ba4a29",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 1
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-10",
+      "title": "Double Tap - 10th Dan",
+      "stars": 6.34,
+      "ticks": 7131,
+      "seconds": 29.7125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6d4a28f9",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-10",
+      "title": "Grab Circuit - 10th Dan",
+      "stars": 5.94,
+      "ticks": 7159,
+      "seconds": 29.829166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4d269c72",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-10",
+      "title": "Overdrive - 10th Dan",
+      "stars": 5.26,
+      "ticks": 7183,
+      "seconds": 29.929166666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4abb70d4",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-10",
+      "title": "Falling Lattice - 10th Dan",
+      "stars": 5.53,
+      "ticks": 7123,
+      "seconds": 29.679166666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5138e4b5",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-11",
+      "title": "Jackhammer - Alpha (Α)",
+      "stars": 6.86,
+      "ticks": 7691,
+      "seconds": 32.045833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "992338f3",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-11",
+      "title": "Clockwork Exam - Alpha (Α)",
+      "stars": 5.93,
+      "ticks": 7639,
+      "seconds": 31.829166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "820ec458",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-11",
+      "title": "Quickstep - Alpha (Α)",
+      "stars": 6.35,
+      "ticks": 7783,
+      "seconds": 32.42916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f452d78a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-11",
+      "title": "Breaking Current - Alpha (Α)",
+      "stars": 6.18,
+      "ticks": 7703,
+      "seconds": 32.09583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "41abd8d2",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-12",
+      "title": "Burst Lock - Beta (Β)",
+      "stars": 7.39,
+      "ticks": 8339,
+      "seconds": 34.74583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5ea04416",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-12",
+      "title": "Gearshift Lab - Beta (Β)",
+      "stars": 6.98,
+      "ticks": 8231,
+      "seconds": 34.295833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a95f1a60",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-12",
+      "title": "Velocity Test - Beta (Β)",
+      "stars": 6.6,
+      "ticks": 8279,
+      "seconds": 34.49583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ad478a4b",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-12",
+      "title": "Long Night - Beta (Β)",
+      "stars": 6.49,
+      "ticks": 8267,
+      "seconds": 34.44583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8d9d2623",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-13",
+      "title": "Double Tap - Gamma (Γ)",
+      "stars": 7.92,
+      "ticks": 8807,
+      "seconds": 36.69583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "b8b6a717",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-13",
+      "title": "Grab Circuit - Gamma (Γ)",
+      "stars": 7.72,
+      "ticks": 8667,
+      "seconds": 36.1125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "586decf3",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-13",
+      "title": "Overdrive - Gamma (Γ)",
+      "stars": 6.92,
+      "ticks": 8819,
+      "seconds": 36.74583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "96174a6b",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-13",
+      "title": "Falling Lattice - Gamma (Γ)",
+      "stars": 6.8,
+      "ticks": 8863,
+      "seconds": 36.92916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "0423ec22",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-14",
+      "title": "Jackhammer - Delta (Δ)",
+      "stars": 8.44,
+      "ticks": 9423,
+      "seconds": 39.2625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "12ddfd9e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-14",
+      "title": "Clockwork Exam - Delta (Δ)",
+      "stars": 7.75,
+      "ticks": 9423,
+      "seconds": 39.2625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a03a107e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-14",
+      "title": "Quickstep - Delta (Δ)",
+      "stars": 7.93,
+      "ticks": 9399,
+      "seconds": 39.1625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4055240d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-14",
+      "title": "Breaking Current - Delta (Δ)",
+      "stars": 7.31,
+      "ticks": 9399,
+      "seconds": 39.1625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "53dc646a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-15",
+      "title": "Burst Lock - Epsilon (Ε)",
+      "stars": 8.76,
+      "ticks": 9919,
+      "seconds": 41.329166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d3804533",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-15",
+      "title": "Gearshift Lab - Epsilon (Ε)",
+      "stars": 8.73,
+      "ticks": 10015,
+      "seconds": 41.729166666666664,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d27c2988",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-15",
+      "title": "Velocity Test - Epsilon (Ε)",
+      "stars": 8,
+      "ticks": 9975,
+      "seconds": 41.5625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3eabd879",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-15",
+      "title": "Long Night - Epsilon (Ε)",
+      "stars": 7.77,
+      "ticks": 9971,
+      "seconds": 41.545833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "24134188",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-16",
+      "title": "Double Tap - Zeta (Ζ)",
+      "stars": 9.49,
+      "ticks": 10535,
+      "seconds": 43.895833333333336,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a14b96d3",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-16",
+      "title": "Grab Circuit - Zeta (Ζ)",
+      "stars": 9.12,
+      "ticks": 10335,
+      "seconds": 43.0625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "cbbd70fe",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-16",
+      "title": "Overdrive - Zeta (Ζ)",
+      "stars": 8.67,
+      "ticks": 10499,
+      "seconds": 43.74583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8ba89140",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-16",
+      "title": "Falling Lattice - Zeta (Ζ)",
+      "stars": 8.51,
+      "ticks": 10539,
+      "seconds": 43.9125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7bab1940",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-17",
+      "title": "Jackhammer - Eta (Η) - HUMAN LIMIT",
+      "stars": 10.02,
+      "ticks": 11079,
+      "seconds": 46.1625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "203ab08e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-17",
+      "title": "Clockwork Exam - Eta (Η) - HUMAN LIMIT",
+      "stars": 9.05,
+      "ticks": 11083,
+      "seconds": 46.17916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a786d38e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-17",
+      "title": "Quickstep - Eta (Η) - HUMAN LIMIT",
+      "stars": 9.8,
+      "ticks": 11167,
+      "seconds": 46.52916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7e65b402",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-17",
+      "title": "Breaking Current - Eta (Η) - HUMAN LIMIT",
+      "stars": 8.9,
+      "ticks": 11063,
+      "seconds": 46.09583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e3224e3c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-18",
+      "title": "Burst Lock - Theta (Θ) - BEYOND HUMAN",
+      "stars": 10.55,
+      "ticks": 11655,
+      "seconds": 48.5625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8c33a1f0",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-18",
+      "title": "Gearshift Lab - Theta (Θ) - BEYOND HUMAN",
+      "stars": 9.35,
+      "ticks": 11751,
+      "seconds": 48.9625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "9a582b7a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-18",
+      "title": "Velocity Test - Theta (Θ) - BEYOND HUMAN",
+      "stars": 10.55,
+      "ticks": 11651,
+      "seconds": 48.545833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "21622e75",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-18",
+      "title": "Long Night - Theta (Θ) - BEYOND HUMAN",
+      "stars": 9.35,
+      "ticks": 11703,
+      "seconds": 48.7625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c56926a5",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-19",
+      "title": "Double Tap - Iota (Ι) - BEYOND HUMAN",
+      "stars": 11.07,
+      "ticks": 12211,
+      "seconds": 50.87916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f0010193",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-19",
+      "title": "Grab Circuit - Iota (Ι) - BEYOND HUMAN",
+      "stars": 10.45,
+      "ticks": 12235,
+      "seconds": 50.979166666666664,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6dec9739",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-19",
+      "title": "Overdrive - Iota (Ι) - BEYOND HUMAN",
+      "stars": 10.3,
+      "ticks": 12179,
+      "seconds": 50.74583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "61dd93bc",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-19",
+      "title": "Falling Lattice - Iota (Ι) - BEYOND HUMAN",
+      "stars": 10.5,
+      "ticks": 12183,
+      "seconds": 50.7625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "cae3337c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-20",
+      "title": "Jackhammer - Kappa (Κ) - BEYOND HUMAN",
+      "stars": 11,
+      "ticks": 12815,
+      "seconds": 53.395833333333336,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "df6174a5",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-20",
+      "title": "Clockwork Exam - Kappa (Κ) - BEYOND HUMAN",
+      "stars": 11,
+      "ticks": 12975,
+      "seconds": 54.0625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "bc2f5a7b",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-20",
+      "title": "Quickstep - Kappa (Κ) - BEYOND HUMAN",
+      "stars": 11,
+      "ticks": 12779,
+      "seconds": 53.24583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "91f58b70",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-20",
+      "title": "Breaking Current - Kappa (Κ) - BEYOND HUMAN",
+      "stars": 11,
+      "ticks": 12763,
+      "seconds": 53.17916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "2d519ab5",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-21",
+      "title": "Burst Lock - Lambda (Λ) - BEYOND HUMAN",
+      "stars": 13.96,
+      "ticks": 13299,
+      "seconds": 55.4125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "265c5245",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-21",
+      "title": "Gearshift Lab - Lambda (Λ) - BEYOND HUMAN",
+      "stars": 13.15,
+      "ticks": 13263,
+      "seconds": 55.2625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8ba7f9ac",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-21",
+      "title": "Velocity Test - Lambda (Λ) - BEYOND HUMAN",
+      "stars": 13.57,
+      "ticks": 13291,
+      "seconds": 55.37916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "cc4c3d76",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-21",
+      "title": "Long Night - Lambda (Λ) - BEYOND HUMAN",
+      "stars": 12.76,
+      "ticks": 13331,
+      "seconds": 55.545833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d89cb5a4",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-22",
+      "title": "Double Tap - Mu (Μ) - BEYOND HUMAN",
+      "stars": 16.31,
+      "ticks": 13915,
+      "seconds": 57.979166666666664,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8f539ac1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-22",
+      "title": "Grab Circuit - Mu (Μ) - BEYOND HUMAN",
+      "stars": 15.39,
+      "ticks": 13915,
+      "seconds": 57.979166666666664,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "750f219d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-22",
+      "title": "Overdrive - Mu (Μ) - BEYOND HUMAN",
+      "stars": 15.32,
+      "ticks": 14051,
+      "seconds": 58.545833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d438676e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-22",
+      "title": "Falling Lattice - Mu (Μ) - BEYOND HUMAN",
+      "stars": 16.04,
+      "ticks": 13875,
+      "seconds": 57.8125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "0561c075",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-23",
+      "title": "Jackhammer - Nu (Ν) - BEYOND HUMAN",
+      "stars": 18.42,
+      "ticks": 14499,
+      "seconds": 60.4125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e4860ff1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-23",
+      "title": "Clockwork Exam - Nu (Ν) - BEYOND HUMAN",
+      "stars": 18.67,
+      "ticks": 14463,
+      "seconds": 60.2625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ef64255d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-23",
+      "title": "Quickstep - Nu (Ν) - BEYOND HUMAN",
+      "stars": 17.47,
+      "ticks": 14503,
+      "seconds": 60.42916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "0e06256d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-23",
+      "title": "Breaking Current - Nu (Ν) - BEYOND HUMAN",
+      "stars": 17.73,
+      "ticks": 14403,
+      "seconds": 60.0125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "da364a02",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-24",
+      "title": "Burst Lock - Xi (Ξ) - BEYOND HUMAN",
+      "stars": 21.03,
+      "ticks": 15027,
+      "seconds": 62.6125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "87ed09ab",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-24",
+      "title": "Gearshift Lab - Xi (Ξ) - BEYOND HUMAN",
+      "stars": 20.03,
+      "ticks": 15151,
+      "seconds": 63.12916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5152e7e8",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-24",
+      "title": "Velocity Test - Xi (Ξ) - BEYOND HUMAN",
+      "stars": 20.83,
+      "ticks": 15135,
+      "seconds": 63.0625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6080ca6a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-24",
+      "title": "Long Night - Xi (Ξ) - BEYOND HUMAN",
+      "stars": 19.87,
+      "ticks": 15047,
+      "seconds": 62.69583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3ee3d5ea",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-25",
+      "title": "Double Tap - Omicron (Ο) - BEYOND HUMAN",
+      "stars": 23.39,
+      "ticks": 15607,
+      "seconds": 65.02916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ce3d346a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-25",
+      "title": "Grab Circuit - Omicron (Ο) - BEYOND HUMAN",
+      "stars": 22.67,
+      "ticks": 15631,
+      "seconds": 65.12916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "74d31840",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-25",
+      "title": "Overdrive - Omicron (Ο) - BEYOND HUMAN",
+      "stars": 22.19,
+      "ticks": 15599,
+      "seconds": 64.99583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "26ffcaf1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-25",
+      "title": "Falling Lattice - Omicron (Ο) - BEYOND HUMAN",
+      "stars": 22.9,
+      "ticks": 15603,
+      "seconds": 65.0125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e5daa9b2",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-26",
+      "title": "Jackhammer - Pi (Π) - BEYOND HUMAN",
+      "stars": 25.74,
+      "ticks": 16155,
+      "seconds": 67.3125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c63318b1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-26",
+      "title": "Clockwork Exam - Pi (Π) - BEYOND HUMAN",
+      "stars": 24.59,
+      "ticks": 16303,
+      "seconds": 67.92916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d3b8e3f9",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-26",
+      "title": "Quickstep - Pi (Π) - BEYOND HUMAN",
+      "stars": 25.58,
+      "ticks": 16227,
+      "seconds": 67.6125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5ce98af7",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-26",
+      "title": "Breaking Current - Pi (Π) - BEYOND HUMAN",
+      "stars": 24.7,
+      "ticks": 16179,
+      "seconds": 67.4125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f3c5089e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-27",
+      "title": "Burst Lock - Rho (Ρ) - BEYOND HUMAN",
+      "stars": 28.1,
+      "ticks": 16699,
+      "seconds": 69.57916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d0f4fdb4",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-27",
+      "title": "Gearshift Lab - Rho (Ρ) - BEYOND HUMAN",
+      "stars": 27.86,
+      "ticks": 16647,
+      "seconds": 69.3625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "22de1c81",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-27",
+      "title": "Velocity Test - Rho (Ρ) - BEYOND HUMAN",
+      "stars": 26.96,
+      "ticks": 16899,
+      "seconds": 70.4125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a37129c1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-27",
+      "title": "Long Night - Rho (Ρ) - BEYOND HUMAN",
+      "stars": 27.14,
+      "ticks": 16723,
+      "seconds": 69.67916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3177a349",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-28",
+      "title": "Double Tap - Sigma (Σ) - BEYOND HUMAN",
+      "stars": 30.46,
+      "ticks": 17311,
+      "seconds": 72.12916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7fd56e59",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-28",
+      "title": "Grab Circuit - Sigma (Σ) - BEYOND HUMAN",
+      "stars": 30.32,
+      "ticks": 17319,
+      "seconds": 72.1625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "39a497c9",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-28",
+      "title": "Overdrive - Sigma (Σ) - BEYOND HUMAN",
+      "stars": 29.4,
+      "ticks": 17311,
+      "seconds": 72.12916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "0f9cface",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-28",
+      "title": "Falling Lattice - Sigma (Σ) - BEYOND HUMAN",
+      "stars": 29.26,
+      "ticks": 17307,
+      "seconds": 72.1125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "0edc8489",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-29",
+      "title": "Jackhammer - Tau (Τ) - BEYOND HUMAN",
+      "stars": 32.55,
+      "ticks": 17951,
+      "seconds": 74.79583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "28eb0b0c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-29",
+      "title": "Clockwork Exam - Tau (Τ) - BEYOND HUMAN",
+      "stars": 32.26,
+      "ticks": 17987,
+      "seconds": 74.94583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3e8ae32e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-29",
+      "title": "Quickstep - Tau (Τ) - BEYOND HUMAN",
+      "stars": 32.17,
+      "ticks": 17943,
+      "seconds": 74.7625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6bcaf8ea",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-29",
+      "title": "Breaking Current - Tau (Τ) - BEYOND HUMAN",
+      "stars": 31.85,
+      "ticks": 17835,
+      "seconds": 74.3125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f3973999",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-30",
+      "title": "Burst Lock - Upsilon (Υ) - BEYOND HUMAN",
+      "stars": 35.06,
+      "ticks": 18455,
+      "seconds": 76.89583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "308addb6",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-30",
+      "title": "Gearshift Lab - Upsilon (Υ) - BEYOND HUMAN",
+      "stars": 35.12,
+      "ticks": 18427,
+      "seconds": 76.77916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "245fa24b",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-30",
+      "title": "Velocity Test - Upsilon (Υ) - BEYOND HUMAN",
+      "stars": 34.08,
+      "ticks": 18547,
+      "seconds": 77.27916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a7c2c543",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-30",
+      "title": "Long Night - Upsilon (Υ) - BEYOND HUMAN",
+      "stars": 33.97,
+      "ticks": 18435,
+      "seconds": 76.8125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e5b1a886",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-31",
+      "title": "Double Tap - Phi (Φ) - BEYOND HUMAN",
+      "stars": 37.53,
+      "ticks": 18947,
+      "seconds": 78.94583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "b5a5456e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-31",
+      "title": "Grab Circuit - Phi (Φ) - BEYOND HUMAN",
+      "stars": 37.22,
+      "ticks": 19011,
+      "seconds": 79.2125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "66d154ad",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-31",
+      "title": "Overdrive - Phi (Φ) - BEYOND HUMAN",
+      "stars": 36.34,
+      "ticks": 18943,
+      "seconds": 78.92916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c2fa24fb",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-31",
+      "title": "Falling Lattice - Phi (Φ) - BEYOND HUMAN",
+      "stars": 36.64,
+      "ticks": 18963,
+      "seconds": 79.0125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "b0a75a81",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-32",
+      "title": "Jackhammer - Chi (Χ) - BEYOND HUMAN",
+      "stars": 39.89,
+      "ticks": 19603,
+      "seconds": 81.67916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "1a49d0b2",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-32",
+      "title": "Clockwork Exam - Chi (Χ) - BEYOND HUMAN",
+      "stars": 38.82,
+      "ticks": 19439,
+      "seconds": 80.99583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3a988494",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-32",
+      "title": "Quickstep - Chi (Χ) - BEYOND HUMAN",
+      "stars": 39.75,
+      "ticks": 19551,
+      "seconds": 81.4625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c1579472",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-32",
+      "title": "Breaking Current - Chi (Χ) - BEYOND HUMAN",
+      "stars": 38.69,
+      "ticks": 19563,
+      "seconds": 81.5125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5cbb78ea",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-33",
+      "title": "Burst Lock - Psi (Ψ) - BEYOND HUMAN",
+      "stars": 42.24,
+      "ticks": 20095,
+      "seconds": 83.72916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "944426a4",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-33",
+      "title": "Gearshift Lab - Psi (Ψ) - BEYOND HUMAN",
+      "stars": 41.05,
+      "ticks": 20191,
+      "seconds": 84.12916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e5deacad",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-33",
+      "title": "Velocity Test - Psi (Ψ) - BEYOND HUMAN",
+      "stars": 42.23,
+      "ticks": 20099,
+      "seconds": 83.74583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "79a348fb",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-33",
+      "title": "Long Night - Psi (Ψ) - BEYOND HUMAN",
+      "stars": 41.04,
+      "ticks": 20119,
+      "seconds": 83.82916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7a625d3b",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-34",
+      "title": "Double Tap - Omega (Ω) - BEYOND HUMAN",
+      "stars": 44,
+      "ticks": 20695,
+      "seconds": 86.22916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "630fb0c4",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-34",
+      "title": "Grab Circuit - Omega (Ω) - BEYOND HUMAN",
+      "stars": 44,
+      "ticks": 20787,
+      "seconds": 86.6125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "63c446a1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-34",
+      "title": "Overdrive - Omega (Ω) - BEYOND HUMAN",
+      "stars": 44,
+      "ticks": 20695,
+      "seconds": 86.22916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "259f5ac1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-34",
+      "title": "Falling Lattice - Omega (Ω) - BEYOND HUMAN",
+      "stars": 44,
+      "ticks": 19123,
+      "seconds": 79.67916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "f1df5d38",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-11",
+      "title": "Jackhammer - Alpha (Α)+",
+      "stars": 7.96,
+      "ticks": 10047,
+      "seconds": 41.8625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "0bfa8a39",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-11",
+      "title": "Clockwork Exam - Alpha (Α)+",
+      "stars": 7.71,
+      "ticks": 9951,
+      "seconds": 41.4625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4b2c4fbd",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-11",
+      "title": "Quickstep - Alpha (Α)+",
+      "stars": 7.01,
+      "ticks": 9971,
+      "seconds": 41.545833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f042ac65",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-11",
+      "title": "Breaking Current - Alpha (Α)+",
+      "stars": 6.76,
+      "ticks": 9951,
+      "seconds": 41.4625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8e3813ba",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-12",
+      "title": "Burst Lock - Beta (Β)+",
+      "stars": 8.64,
+      "ticks": 10527,
+      "seconds": 43.8625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "55e97f94",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-12",
+      "title": "Gearshift Lab - Beta (Β)+",
+      "stars": 7.98,
+      "ticks": 10335,
+      "seconds": 43.0625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "63904a5f",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-12",
+      "title": "Velocity Test - Beta (Β)+",
+      "stars": 8.08,
+      "ticks": 10467,
+      "seconds": 43.6125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "dd8fe165",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-12",
+      "title": "Long Night - Beta (Β)+",
+      "stars": 8,
+      "ticks": 10519,
+      "seconds": 43.829166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "0b197699",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-13",
+      "title": "Double Tap - Gamma (Γ)+",
+      "stars": 9.32,
+      "ticks": 11123,
+      "seconds": 46.34583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "b27d789d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-13",
+      "title": "Grab Circuit - Gamma (Γ)+",
+      "stars": 8.43,
+      "ticks": 11119,
+      "seconds": 46.329166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "2c252bac",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-13",
+      "title": "Overdrive - Gamma (Γ)+",
+      "stars": 8.12,
+      "ticks": 11147,
+      "seconds": 46.44583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "72e21fc9",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-13",
+      "title": "Falling Lattice - Gamma (Γ)+",
+      "stars": 9,
+      "ticks": 11147,
+      "seconds": 46.44583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a9654b24",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-14",
+      "title": "Jackhammer - Delta (Δ)+",
+      "stars": 9.99,
+      "ticks": 11643,
+      "seconds": 48.5125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "228753c9",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-14",
+      "title": "Clockwork Exam - Delta (Δ)+",
+      "stars": 8.96,
+      "ticks": 11655,
+      "seconds": 48.5625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f0801055",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-14",
+      "title": "Quickstep - Delta (Δ)+",
+      "stars": 9.75,
+      "ticks": 11655,
+      "seconds": 48.5625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ca6c5e41",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-14",
+      "title": "Breaking Current - Delta (Δ)+",
+      "stars": 9.04,
+      "ticks": 11655,
+      "seconds": 48.5625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ceaac689",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-15",
+      "title": "Burst Lock - Epsilon (Ε)+",
+      "stars": 10.67,
+      "ticks": 12267,
+      "seconds": 51.1125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c820714c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-15",
+      "title": "Gearshift Lab - Epsilon (Ε)+",
+      "stars": 9.52,
+      "ticks": 12191,
+      "seconds": 50.795833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3f795cda",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-15",
+      "title": "Velocity Test - Epsilon (Ε)+",
+      "stars": 10.24,
+      "ticks": 12211,
+      "seconds": 50.87916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "64d9ce65",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-15",
+      "title": "Long Night - Epsilon (Ε)+",
+      "stars": 9.89,
+      "ticks": 12191,
+      "seconds": 50.795833333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f0f74556",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-16",
+      "title": "Double Tap - Zeta (Ζ)+",
+      "stars": 11.34,
+      "ticks": 13351,
+      "seconds": 55.62916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a0b0c577",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-16",
+      "title": "Grab Circuit - Zeta (Ζ)+",
+      "stars": 11.13,
+      "ticks": 13263,
+      "seconds": 55.2625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ab4dd127",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-16",
+      "title": "Overdrive - Zeta (Ζ)+",
+      "stars": 10.33,
+      "ticks": 13307,
+      "seconds": 55.44583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c22d0c29",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-16",
+      "title": "Falling Lattice - Zeta (Ζ)+",
+      "stars": 10.36,
+      "ticks": 13339,
+      "seconds": 55.579166666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a2bc96b4",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-17",
+      "title": "Jackhammer - Eta (Η) - HUMAN LIMIT+",
+      "stars": 12.02,
+      "ticks": 14515,
+      "seconds": 60.479166666666664,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4b9f7db0",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-17",
+      "title": "Clockwork Exam - Eta (Η) - HUMAN LIMIT+",
+      "stars": 11.56,
+      "ticks": 14475,
+      "seconds": 60.3125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4f5bddf6",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-17",
+      "title": "Quickstep - Eta (Η) - HUMAN LIMIT+",
+      "stars": 11.28,
+      "ticks": 14487,
+      "seconds": 60.3625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "edf0313a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-17",
+      "title": "Breaking Current - Eta (Η) - HUMAN LIMIT+",
+      "stars": 10.82,
+      "ticks": 14443,
+      "seconds": 60.17916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "04a3c162",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-18",
+      "title": "Burst Lock - Theta (Θ) - BEYOND HUMAN+",
+      "stars": 12.37,
+      "ticks": 15611,
+      "seconds": 65.04583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6aa5e6d8",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-18",
+      "title": "Gearshift Lab - Theta (Θ) - BEYOND HUMAN+",
+      "stars": 11.79,
+      "ticks": 15651,
+      "seconds": 65.2125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7aca8fe3",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-18",
+      "title": "Velocity Test - Theta (Θ) - BEYOND HUMAN+",
+      "stars": 12.61,
+      "ticks": 15639,
+      "seconds": 65.1625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "038d7f54",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-18",
+      "title": "Long Night - Theta (Θ) - BEYOND HUMAN+",
+      "stars": 11.82,
+      "ticks": 15655,
+      "seconds": 65.22916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "201ddb61",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-19",
+      "title": "Double Tap - Iota (Ι) - BEYOND HUMAN+",
+      "stars": 12.9,
+      "ticks": 16735,
+      "seconds": 69.72916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f201df21",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-19",
+      "title": "Grab Circuit - Iota (Ι) - BEYOND HUMAN+",
+      "stars": 13.37,
+      "ticks": 16651,
+      "seconds": 69.37916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "04d5799c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-19",
+      "title": "Overdrive - Iota (Ι) - BEYOND HUMAN+",
+      "stars": 12.17,
+      "ticks": 16735,
+      "seconds": 69.72916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a1a9b558",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-19",
+      "title": "Falling Lattice - Iota (Ι) - BEYOND HUMAN+",
+      "stars": 12.65,
+      "ticks": 16775,
+      "seconds": 69.89583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7e2db0bf",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-20",
+      "title": "Jackhammer - Kappa (Κ) - BEYOND HUMAN+",
+      "stars": 13.45,
+      "ticks": 17371,
+      "seconds": 72.37916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "de313c73",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-20",
+      "title": "Clockwork Exam - Kappa (Κ) - BEYOND HUMAN+",
+      "stars": 13.45,
+      "ticks": 17307,
+      "seconds": 72.1125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "d322586c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-20",
+      "title": "Quickstep - Kappa (Κ) - BEYOND HUMAN+",
+      "stars": 13.45,
+      "ticks": 17323,
+      "seconds": 72.17916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3a08e07d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-20",
+      "title": "Breaking Current - Kappa (Κ) - BEYOND HUMAN+",
+      "stars": 13.45,
+      "ticks": 17263,
+      "seconds": 71.92916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "955a7833",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-21",
+      "title": "Burst Lock - Lambda (Λ) - BEYOND HUMAN+",
+      "stars": 15.96,
+      "ticks": 18423,
+      "seconds": 76.7625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "f0fc44a2",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-21",
+      "title": "Gearshift Lab - Lambda (Λ) - BEYOND HUMAN+",
+      "stars": 15.95,
+      "ticks": 18447,
+      "seconds": 76.8625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "291a1984",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-21",
+      "title": "Velocity Test - Lambda (Λ) - BEYOND HUMAN+",
+      "stars": 15.9,
+      "ticks": 18527,
+      "seconds": 77.19583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "85278b64",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-21",
+      "title": "Long Night - Lambda (Λ) - BEYOND HUMAN+",
+      "stars": 16.56,
+      "ticks": 18431,
+      "seconds": 76.79583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "fadc30fe",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-22",
+      "title": "Double Tap - Mu (Μ) - BEYOND HUMAN+",
+      "stars": 18.61,
+      "ticks": 19543,
+      "seconds": 81.42916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ddcf0bc1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-22",
+      "title": "Grab Circuit - Mu (Μ) - BEYOND HUMAN+",
+      "stars": 18.32,
+      "ticks": 19435,
+      "seconds": 80.97916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ad6f6fe1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-22",
+      "title": "Overdrive - Mu (Μ) - BEYOND HUMAN+",
+      "stars": 18,
+      "ticks": 19527,
+      "seconds": 81.3625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "969fa139",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-22",
+      "title": "Falling Lattice - Mu (Μ) - BEYOND HUMAN+",
+      "stars": 19.06,
+      "ticks": 19571,
+      "seconds": 81.54583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "9e35d02a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-23",
+      "title": "Jackhammer - Nu (Ν) - BEYOND HUMAN+",
+      "stars": 21.57,
+      "ticks": 20727,
+      "seconds": 86.3625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6c305467",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-23",
+      "title": "Clockwork Exam - Nu (Ν) - BEYOND HUMAN+",
+      "stars": 21.33,
+      "ticks": 20803,
+      "seconds": 86.67916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "b535b3c3",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-23",
+      "title": "Quickstep - Nu (Ν) - BEYOND HUMAN+",
+      "stars": 20.62,
+      "ticks": 20687,
+      "seconds": 86.19583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "08dfcdb9",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-23",
+      "title": "Breaking Current - Nu (Ν) - BEYOND HUMAN+",
+      "stars": 20.37,
+      "ticks": 20751,
+      "seconds": 86.4625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "2c001b78",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-24",
+      "title": "Burst Lock - Xi (Ξ) - BEYOND HUMAN+",
+      "stars": 24.08,
+      "ticks": 21819,
+      "seconds": 90.9125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "58989e25",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-24",
+      "title": "Gearshift Lab - Xi (Ξ) - BEYOND HUMAN+",
+      "stars": 23.69,
+      "ticks": 21799,
+      "seconds": 90.82916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5c5efa4a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-24",
+      "title": "Velocity Test - Xi (Ξ) - BEYOND HUMAN+",
+      "stars": 23.27,
+      "ticks": 21819,
+      "seconds": 90.9125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c54ea555",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-24",
+      "title": "Long Night - Xi (Ξ) - BEYOND HUMAN+",
+      "stars": 23.1,
+      "ticks": 21783,
+      "seconds": 90.7625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "9195dc1c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-25",
+      "title": "Double Tap - Omicron (Ο) - BEYOND HUMAN+",
+      "stars": 26.59,
+      "ticks": 22399,
+      "seconds": 93.32916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c696ac68",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-25",
+      "title": "Grab Circuit - Omicron (Ο) - BEYOND HUMAN+",
+      "stars": 26.02,
+      "ticks": 22527,
+      "seconds": 93.8625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "1c91f6d2",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-25",
+      "title": "Overdrive - Omicron (Ο) - BEYOND HUMAN+",
+      "stars": 25.42,
+      "ticks": 22427,
+      "seconds": 93.44583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5b9b0361",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-25",
+      "title": "Falling Lattice - Omicron (Ο) - BEYOND HUMAN+",
+      "stars": 25.95,
+      "ticks": 22327,
+      "seconds": 93.02916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "3249fad0",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-26",
+      "title": "Jackhammer - Pi (Π) - BEYOND HUMAN+",
+      "stars": 29.09,
+      "ticks": 23511,
+      "seconds": 97.9625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e4658e5d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-26",
+      "title": "Clockwork Exam - Pi (Π) - BEYOND HUMAN+",
+      "stars": 28.81,
+      "ticks": 23531,
+      "seconds": 98.04583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "22027c86",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-26",
+      "title": "Quickstep - Pi (Π) - BEYOND HUMAN+",
+      "stars": 28.18,
+      "ticks": 23499,
+      "seconds": 97.9125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "27bc996b",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-26",
+      "title": "Breaking Current - Pi (Π) - BEYOND HUMAN+",
+      "stars": 27.89,
+      "ticks": 23563,
+      "seconds": 98.17916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "950d4ca8",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-27",
+      "title": "Burst Lock - Rho (Ρ) - BEYOND HUMAN+",
+      "stars": 31.6,
+      "ticks": 24627,
+      "seconds": 102.6125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "00f788dc",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-27",
+      "title": "Gearshift Lab - Rho (Ρ) - BEYOND HUMAN+",
+      "stars": 30.49,
+      "ticks": 24679,
+      "seconds": 102.82916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "19308875",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-27",
+      "title": "Velocity Test - Rho (Ρ) - BEYOND HUMAN+",
+      "stars": 30.73,
+      "ticks": 24675,
+      "seconds": 102.8125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "e5101249",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-27",
+      "title": "Long Night - Rho (Ρ) - BEYOND HUMAN+",
+      "stars": 31.27,
+      "ticks": 24659,
+      "seconds": 102.74583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "df31acb6",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-28",
+      "title": "Double Tap - Sigma (Σ) - BEYOND HUMAN+",
+      "stars": 34.03,
+      "ticks": 25791,
+      "seconds": 107.4625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "99907334",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-28",
+      "title": "Grab Circuit - Sigma (Σ) - BEYOND HUMAN+",
+      "stars": 33.28,
+      "ticks": 25839,
+      "seconds": 107.6625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6bb17551",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-28",
+      "title": "Overdrive - Sigma (Σ) - BEYOND HUMAN+",
+      "stars": 32.91,
+      "ticks": 25995,
+      "seconds": 108.3125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "16709142",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-28",
+      "title": "Falling Lattice - Sigma (Σ) - BEYOND HUMAN+",
+      "stars": 33.73,
+      "ticks": 25795,
+      "seconds": 107.47916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "08c0b3ff",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-29",
+      "title": "Jackhammer - Tau (Τ) - BEYOND HUMAN+",
+      "stars": 36.61,
+      "ticks": 26359,
+      "seconds": 109.82916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "b77de44d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-29",
+      "title": "Clockwork Exam - Tau (Τ) - BEYOND HUMAN+",
+      "stars": 35.41,
+      "ticks": 26331,
+      "seconds": 109.7125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "ae370602",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-29",
+      "title": "Quickstep - Tau (Τ) - BEYOND HUMAN+",
+      "stars": 36.45,
+      "ticks": 26435,
+      "seconds": 110.14583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "29a695a1",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-29",
+      "title": "Breaking Current - Tau (Τ) - BEYOND HUMAN+",
+      "stars": 35.58,
+      "ticks": 27595,
+      "seconds": 114.97916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "fa94dad9",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-30",
+      "title": "Burst Lock - Upsilon (Υ) - BEYOND HUMAN+",
+      "stars": 39.12,
+      "ticks": 44719,
+      "seconds": 186.32916666666668,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "20054224",
+      "loadout": {
+        "weapon": "needle",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-30",
+      "title": "Gearshift Lab - Upsilon (Υ) - BEYOND HUMAN+",
+      "stars": 38.62,
+      "ticks": 26359,
+      "seconds": 109.82916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "6130a505",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-30",
+      "title": "Velocity Test - Upsilon (Υ) - BEYOND HUMAN+",
+      "stars": 38.43,
+      "ticks": 26423,
+      "seconds": 110.09583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "99649d0f",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-30",
+      "title": "Long Night - Upsilon (Υ) - BEYOND HUMAN+",
+      "stars": 37.92,
+      "ticks": 26291,
+      "seconds": 109.54583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c02d08ad",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-31",
+      "title": "Double Tap - Phi (Φ) - BEYOND HUMAN+",
+      "stars": 41.63,
+      "ticks": 26403,
+      "seconds": 110.0125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "4894f27d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-31",
+      "title": "Grab Circuit - Phi (Φ) - BEYOND HUMAN+",
+      "stars": 41.21,
+      "ticks": 26555,
+      "seconds": 110.64583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "84f7a58d",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-31",
+      "title": "Overdrive - Phi (Φ) - BEYOND HUMAN+",
+      "stars": 40.43,
+      "ticks": 26423,
+      "seconds": 110.09583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "5e6a22fd",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-31",
+      "title": "Falling Lattice - Phi (Φ) - BEYOND HUMAN+",
+      "stars": 40.85,
+      "ticks": 26375,
+      "seconds": 109.89583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "9f0a433e",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-32",
+      "title": "Jackhammer - Chi (Χ) - BEYOND HUMAN+",
+      "stars": 44.14,
+      "ticks": 26347,
+      "seconds": 109.77916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "816af6f2",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-32",
+      "title": "Clockwork Exam - Chi (Χ) - BEYOND HUMAN+",
+      "stars": 43.37,
+      "ticks": 26483,
+      "seconds": 110.34583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "8bd99614",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-32",
+      "title": "Quickstep - Chi (Χ) - BEYOND HUMAN+",
+      "stars": 43.7,
+      "ticks": 26443,
+      "seconds": 110.17916666666666,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "c1c99b0b",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-32",
+      "title": "Breaking Current - Chi (Χ) - BEYOND HUMAN+",
+      "stars": 43.09,
+      "ticks": 26351,
+      "seconds": 109.79583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "84c2dc6a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-33",
+      "title": "Burst Lock - Psi (Ψ) - BEYOND HUMAN+",
+      "stars": 46.41,
+      "ticks": 26319,
+      "seconds": 109.6625,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "62f4902a",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-33",
+      "title": "Gearshift Lab - Psi (Ψ) - BEYOND HUMAN+",
+      "stars": 45.76,
+      "ticks": 26411,
+      "seconds": 110.04583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "7140d893",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-33",
+      "title": "Velocity Test - Psi (Ψ) - BEYOND HUMAN+",
+      "stars": 46.33,
+      "ticks": 26475,
+      "seconds": 110.3125,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "a69bb5b7",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-33",
+      "title": "Long Night - Psi (Ψ) - BEYOND HUMAN+",
+      "stars": 45.56,
+      "ticks": 26339,
+      "seconds": 109.74583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 0,
+      "digest": "629a764c",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "jack-plus-34",
+      "title": "Double Tap - Omega (Ω) - BEYOND HUMAN+",
+      "stars": 48.5,
+      "ticks": 26387,
+      "seconds": 109.94583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "707fb1db",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "tech-plus-34",
+      "title": "Grab Circuit - Omega (Ω) - BEYOND HUMAN+",
+      "stars": 48.5,
+      "ticks": 26455,
+      "seconds": 110.22916666666667,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "0f6be0b2",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "speed-plus-34",
+      "title": "Overdrive - Omega (Ω) - BEYOND HUMAN+",
+      "stars": 48.5,
+      "ticks": 26459,
+      "seconds": 110.24583333333334,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "43d2e391",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    },
+    {
+      "id": "stamina-plus-34",
+      "title": "Falling Lattice - Omega (Ω) - BEYOND HUMAN+",
+      "stars": 48.5,
+      "ticks": 26351,
+      "seconds": 109.79583333333333,
+      "hits": 0,
+      "bombs": 0,
+      "perfectInputs": 473,
+      "digest": "28d57d01",
+      "loadout": {
+        "weapon": "seeker",
+        "upgrades": {
+          "power": 3,
+          "fire": 3,
+          "hearts": 2,
+          "bomb": 2,
+          "dash": 3,
+          "iframe": 2,
+          "graze": 2,
+          "breather": 2
+        }
+      },
+      "verified": true
+    }
+  ]
+}

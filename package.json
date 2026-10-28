@@ -1,0 +1,12 @@
+{
+  "name": "star-square-community-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node tas-tools/check-runtime.mjs",
+    "tas:generate": "node tas-tools/generate.mjs",
+    "tas:verify": "node tas-tools/verify.mjs",
+    "tas:check": "node tas-tools/check-runtime.mjs"
+  }
+}
