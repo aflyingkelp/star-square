@@ -18,17 +18,23 @@ let mutationQueue = Promise.resolve();
 const isoRegionKey = (country, region) => country && region ? `${country}-${region}` : null;
 const supabaseUrl = String(process.env.SUPABASE_URL || '').replace(/\/$/, '');
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-const useSupabase = Boolean(supabaseUrl && supabaseKey);
+const storageGatewayUrl = process.env.STORAGE_GATEWAY_URL || '';
+const storageGatewayToken = process.env.STORAGE_GATEWAY_TOKEN || '';
+const useGateway = Boolean(storageGatewayUrl && storageGatewayToken);
+const useSupabase = useGateway || Boolean(supabaseUrl && supabaseKey);
 const requirePersistentStorage = process.env.REQUIRE_PERSISTENT_STORAGE === '1';
 if (Boolean(supabaseUrl) !== Boolean(supabaseKey)) throw new Error('Set both SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY');
+if (Boolean(storageGatewayUrl) !== Boolean(storageGatewayToken)) throw new Error('Set both STORAGE_GATEWAY_URL and STORAGE_GATEWAY_TOKEN');
 
 async function supabaseRequest(table, key, options = {}) {
-  const response = await fetch(`${supabaseUrl}/rest/v1/${table}${options.upsert ? '?on_conflict=key' : `?${new URLSearchParams({ key: `eq.${key}` })}`}`, {
+  const endpoint = useGateway ? `${storageGatewayUrl}?${new URLSearchParams({ key })}`
+    : `${supabaseUrl}/rest/v1/${table}${options.upsert ? '?on_conflict=key' : `?${new URLSearchParams({ key: `eq.${key}` })}`}`;
+  const response = await fetch(endpoint, {
     method: options.method || 'GET',
-    headers: { apikey: supabaseKey, Authorization: `Bearer ${supabaseKey}`, 'Content-Type': 'application/json',
+    headers: { ...(useGateway ? { 'x-game-storage-key': storageGatewayToken } : { apikey: supabaseKey, Authorization: `Bearer ${supabaseKey}` }), 'Content-Type': 'application/json',
       ...(options.upsert ? { Prefer: 'resolution=merge-duplicates,return=minimal' } : options.returning ? { Prefer: 'return=representation' } : {}) },
     ...(options.value === undefined ? {} : { body: JSON.stringify({ key, value: options.value, updated_at: new Date().toISOString() }) }),
-    signal: AbortSignal.timeout(10_000)
+    signal: AbortSignal.timeout(30_000)
   });
   if (!response.ok) throw new Error(`Supabase ${table} request failed (${response.status})`);
   const content = await response.text();

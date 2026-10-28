@@ -5,11 +5,13 @@
 Deploy this repository as a Render **Free web service**, with Node 22, build command `npm install`, and start command `npm start`. The `render.yaml` Blueprint contains this configuration. The game and API share the Render URL; GitHub Pages alone cannot run the API.
 
 1. Create a free Supabase project and run `supabase-schema.sql` in its SQL Editor.
-2. Set `SUPABASE_URL` and the legacy `SUPABASE_SERVICE_ROLE_KEY` in the Render service's Environment settings. Keep the key secret; never put it in HTML, GitHub, or browser storage.
+2. Deploy `supabase/functions/game-storage/index.ts` to Supabase. The function authenticates the Render server with a 32-byte random token, whose SHA-256 hash is recorded in its source. The token itself belongs only in Render's `STORAGE_GATEWAY_TOKEN` secret. Set `STORAGE_GATEWAY_URL` to the deployed function URL. The Supabase database secret stays inside Supabase. The function disables the gateway's JWT check because it checks its own dedicated token before any database operation.
 3. Set `REQUIRE_PERSISTENT_STORAGE=1` on Render. Until Supabase is configured, the game loads but online API operations return 503 instead of writing temporary local files.
 4. Open `/api/health` on the Render URL. `storage: "supabase"` confirms credentials are configured; uploading a map or score confirms the schema and database connection work.
 
 Maps (including embedded PNGs), score replays, and ranking profiles are stored in Supabase. This initial adapter keeps three JSON state documents and serializes writes within one server process; use one instance. It is intended for a small community. Larger deployments need individual database records and transactional updates instead of rewriting the whole score collection. Local JSON data is not imported automatically.
+
+The deployed service is https://star-square.onrender.com. Render owns the runtime environment settings; the Blueprint is a template for recreating the service. For a direct REST setup instead of the function, the server also accepts paired `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` variables. Never expose either server credential to browser code. For token rotation, deploy a new hash and update Render's token together; the old token stops working immediately.
 
 Render Free sleeps after inactivity, so the first visit can take about a minute. Free provider quotas and Supabase project pausing still apply. No part of the deployed app depends on your PC staying on.
 

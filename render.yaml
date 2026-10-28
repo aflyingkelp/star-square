@@ -11,9 +11,11 @@ services:
         value: "22"
       - key: REQUIRE_PERSISTENT_STORAGE
         value: "1"
-      - key: SUPABASE_URL
+      - key: STORAGE_GATEWAY_URL
         sync: false
-      - key: SUPABASE_SERVICE_ROLE_KEY
+      - key: STORAGE_GATEWAY_TOKEN
         sync: false
       - key: GEOIP_LOOKUP
+        value: "1"
+      - key: TRUST_PROXY_HOPS
         value: "1"
