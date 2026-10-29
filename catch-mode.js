@@ -9,7 +9,7 @@ function open(){mode='tree';window.catchModeActive=true;tree()}
 function tree(){
  const a=api(), defs=a.levels, groups=[];
  defs.forEach(function(src){const plus=!!src.plus,key=src.rank+':'+plus;let g=groups.find(x=>x.key===key);if(!g){g={key:key,rank:src.rank,plus:plus,levels:[]};groups.push(g)}g.levels.push(src)});
- let bands=groups.map(function(g){const items=g.levels.map(function(d,i){const id=d.id,done=!!a.save.catchCleared[id],prev=g.levels.slice(0,i).every(x=>a.save.catchCleared[x.id]),prior=defs.filter(x=>x.rank===d.rank-1&&!x.plus),base=defs.filter(x=>x.rank===d.rank&&!x.plus),unlocked=(d.rank===0&&!g.plus&&i===0)||prev||(g.plus&&base.length&&base.every(x=>a.save.catchCleared[x.id]))||(!g.plus&&i===0&&d.rank>0&&prior.length&&prior.every(x=>a.save.catchCleared[x.id])),best=a.save.catchResults[id]||{};
+ let bands=groups.map(function(g){const items=g.levels.map(function(d,i){const id=d.id,done=!!a.save.catchCleared[id],prev=i>0&&g.levels.slice(0,i).every(x=>a.save.catchCleared[x.id]),prior=defs.filter(x=>x.rank===d.rank-1&&!x.plus),base=defs.filter(x=>x.rank===d.rank&&!x.plus),unlocked=(d.rank===0&&!g.plus&&i===0)||prev||(g.plus&&i===0&&base.length&&base.every(x=>a.save.catchCleared[x.id]))||(!g.plus&&i===0&&d.rank>0&&prior.length&&prior.every(x=>a.save.catchCleared[x.id])),best=a.save.catchResults[id]||{};
  return '<button class="levelnode '+(done?'complete':'')+'" data-catch="'+id+'" '+(unlocked?'':'disabled')+'><small>'+d.skill+' · '+(g.plus?'PLUS':d.dan)+'</small><b>'+d.title+'</b><small>★ '+a.star(d).toFixed(2)+' stars</small><span>'+(done?'BEST '+Number(best.bestPP||0).toFixed(1)+' Catch PP':unlocked?'Catch the falling stars':'Clear the previous Catch set first')+'</span></button>'}).join('');
  return '<section class="danband"><div class="bandtitle"><b>'+(g.rank===0?'Tutorial':a.danName(g.rank))+(g.plus?' +':'')+'</b><span>Four lane charts · '+(g.plus?'barely possible plus set':'catch progression')+'</span></div><div class="levelgrid">'+items+'</div></section>'}).join('');
  show('<div class="treehead"><div><h1>STAR//SQUARE <span>CATCH</span></h1><p>Catch the falling stars with your basket. Move with your mouse or ← →; hold Shift or Space to dash. Each Dan has Jack, Tech, Speed and Stamina charts, then a Plus set.</p><p class="sub">Separate Catch PP: '+Number(a.save.catchPP||0).toFixed(2)+' · Catch clears do not change the danmaku rank.</p></div><button class="btn" id="catchBack">Title</button></div>'+bands);
@@ -29,9 +29,9 @@ function spawn(){
   else if(d.skill==='TECH')x=65+((center+i*spacing*2+Math.sin(run.time+i)*80)%(W-130));
   else if(d.skill==='SPEED')x=30+((run.time*190+i*spacing)%(W-60));
   else x=center+Math.sin(run.time*.7+i*.8)*spacing*(i+1);
-  run.fruits.push({x:Math.max(18,Math.min(W-18,x)),y:-24-i*30,vy:180+rank*4.5+(d.skill==='SPEED'?45:0),kind:d.skill==='TECH'&&i%4===0?'droplet':'fruit',r:15});
+  run.fruits.push({x:Math.max(18,Math.min(W-18,x)),y:-24-i*30,vy:180+rank*4.5+(d.skill==='SPEED'?45:0),kind:d.skill==='TECH'&&i%4===0?'droplet':'fruit',r:15,alive:true});
  }
- if(d.skill==='TECH'&&Math.random()<.28)run.fruits.push({x:center,y:-36,vy:180+rank*3,r:14,kind:'hazard'});
+ if(d.skill==='TECH'&&Math.random()<.28)run.fruits.push({x:center,y:-36,vy:180+rank*3,r:14,kind:'hazard',alive:true});
 }
 function tick(dt){
  const d=run.def,rank=d.rank+(d.plus?2:0),speed=300+Math.min(230,rank*8),width=Math.max(38,76-rank*.7);
