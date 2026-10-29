@@ -275,6 +275,8 @@ const server = http.createServer(async (req, res) => {
       const geo = await geoForRequest(req);
       const result = await mutate(async () => {
         const profiles = await readProfiles(), p = profileFor(profiles, id, name, geo);
+        // Repair a stale profile total from score records that the server already accepted.
+        for (const run of await readScores()) if (run.profileId === id && run.passed) upsertBest(p, run, run.ranked === true);
         const lists = refreshRanks(profiles, id); await writeProfiles(profiles); const ranks = positionsFor(p, lists);
         return { profile: publicProfile(p), ranks, top: { global: topRows(lists.global), country: topRows(lists.country(p.country)), region: topRows(lists.region(p.country,p.regionCode)) } };
       });
