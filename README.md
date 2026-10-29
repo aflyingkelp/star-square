@@ -96,7 +96,7 @@ Saving, JSON export/import, and community map uploads retain all keyframes and P
 
 ## Scores, accuracy, and replays
 
-Each completed clear, failed run, and practice session is saved in this browser with its score, PP, grade, hit count, and replay. Run accuracy is survival accuracy: remaining lives divided by starting lives, shown as a percentage (a hit reduces it; a hitless run is 100%). Open **Saved scores** from the title screen or a result, then choose **Watch replay** to review the deterministic 240 Hz input tape. The list keeps recent runs, including failures.
+Each completed clear and failed run is saved in this browser with its score, PP, grade, hit count, and replay. Run accuracy is survival accuracy: remaining lives divided by starting lives, shown as a percentage (a hit reduces it; a hitless run is 100%). Open **Saved scores** from the title screen or a result, then choose **Watch replay** to review the deterministic 240 Hz input tape. The list keeps recent runs, including failures.
 
 When the game is served by `npm start` at `http://localhost:4173`, each new score and replay is also posted to `/api/scores` and stored in `data/scores.json` beside the server data. Starting the server later and opening Saved scores retries pending uploads. Opening the HTML directly with `file://` keeps scores local because browsers block same-origin API access. This is a server on your computer; hosting it publicly requires deploying the included Node server.
 
@@ -106,7 +106,7 @@ Press **Esc** from a result screen to return to the Dan tree.
 
 The Dan tree opens **Global ranking** for global, country, and region positions plus a rank-history graph. Every official level card has its own **Leaderboard** button. These views require the game to be served from the same Node server; opening the HTML with file:// cannot submit scores or show shared rankings.
 
-The server stores score runs in data/scores.json, and ranked player profiles in data/profiles.json. It replays each claimed ranked clear using the saved 240 Hz input tape, the official level, and the submitted loadout before adding its PP to global or level rankings. Failed, custom, practice, and speedhack scores are still stored; they appear in the unranked level table and do not add ranked PP.
+The server stores score runs in data/scores.json, and ranked player profiles in data/profiles.json. It replays each claimed ranked clear using the saved 240 Hz input tape, the official level, and the submitted loadout before adding its PP to global or level rankings. Failed, custom, and speedhack scores are still stored; they appear in the unranked level table and do not add ranked PP.
 
 Country and region are estimated from the request IP using ipapi.co. The server keeps the country and region codes, not the raw IP; it sends the address to ipapi.co for the lookup. IP-based region estimates can be imprecise. For local use, the provider sees the server's public egress address. Behind a reverse proxy, configure TRUST_PROXY_HOPS to the number of trusted proxy hops so the server can resolve the player's address; forwarded headers are ignored by default. GEOIP_LOOKUP=0 disables lookup.
 
