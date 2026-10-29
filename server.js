@@ -206,7 +206,7 @@ function verifyRankedRun(score) {
   if (!level || !tape || !/^[0-9a-f]{8}$/i.test(String(tape.digest||'')) || Number(score.rank)!==level.rank || Math.abs(Number(score.stars)-Number(level.stars))>.01) return false;
   let ok=false;
   try {
-    scoreEngine.startScoreReplay(score.levelId,{weapon:score.weapon,upgrades:score.upgrades||{},seed:tape.seed});
+    scoreEngine.startScoreReplay(score.levelId,{weapon:score.weapon,upgrades:score.upgrades||{},mods:score.mods||{},seed:tape.seed});
     let ticks=0;
     for (const [count,mask] of tape.runs) for (let i=0;i<count;i++) { scoreEngine.tick(mask); ticks++; }
     const state=scoreEngine.state(), expectedAccuracy=Math.round(Math.max(0,(Number(state.player.maxLives||5)-state.hits)/(Number(state.player.maxLives||5))*100)*100)/100;
@@ -219,7 +219,7 @@ function verifyRankedRun(score) {
   return ok;
 }
 function validScore(score) {
-  const tape = score?.replay;
+  const tape = score?.replay;if(score?.mods&&(typeof score.mods!=='object'||Array.isArray(score.mods)||Object.entries(score.mods).some(([key,value])=>!['HD','DT','HR'].includes(key)||typeof value!=='boolean')))return false;
   if (!score || typeof score.id !== 'string' || score.id.length > 100 || !/^[\w-]{1,80}$/.test(String(score.profileId || '')) ||
       !/^[\w-]{1,100}$/.test(String(score.levelId || '')) || !Number.isFinite(+score.pp) || +score.pp < 0 || +score.pp > 100_000 ||
       !Number.isFinite(+score.accuracy) || +score.accuracy < 0 || +score.accuracy > 100 || !Number.isFinite(+score.score) ||
@@ -250,7 +250,7 @@ const server = http.createServer(async (req, res) => {
       let verification;
       for (let step = 0; step < 160; step++) {
         const upstream = await fetch(cloudProxy.apiBase + url.pathname + url.search, {
-          method: req.method, headers: { apikey: cloudProxy.apiKey, 'Content-Type': 'application/json',
+          method: req.method, headers: { apikey: cloudProxy.apiKey, 'Content-Type': 'application/json',...(req.headers.authorization?{Authorization:req.headers.authorization}:{}),
             ...(storageGatewayToken ? { 'x-star-square-server-key': storageGatewayToken, 'x-star-square-client-ip': clientIp(req) } : {}) },
           ...(payload ? { body: JSON.stringify({ ...payload, ...(verification ? { verification } : {}) }) } : {}),
           signal: AbortSignal.timeout(30000)
@@ -302,7 +302,7 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === '/api/scores' && req.method === 'POST') {
       const input = await body(req), score = input.score;
       if (!validScore(score)) return send(res, 400, { error: 'Invalid score or replay data' });
-      const wantsRanked = score.ranked === true && !!score.passed && !score.practice && !score.custom && !score.speedhack;
+      const wantsRanked = score.ranked === true && !!score.passed && !score.practice && !score.custom && !score.speedhack && (!score.speedhackRate || Number(score.speedhackRate) === 1);
       if (!allowRequest(req,wantsRanked?'ranked-score':'score',wantsRanked?12:100,60_000)) return send(res,429,{error:'Score upload limit reached; retry in a minute'});
       if (wantsRanked && !verifyRankedRun(score)) return send(res,422,{error:'Ranked replay did not match the submitted score'});
       const geo = await geoForRequest(req);
@@ -313,7 +313,7 @@ const server = http.createServer(async (req, res) => {
         const stored = { id: randomUUID(), clientId: String(score.id), profileId: String(score.profileId),
           profileName: String(score.profileName || '').slice(0, 32), levelId: String(score.levelId), title: String(score.title || 'Untitled run').slice(0, 100),
           dan: String(score.dan || '').slice(0, 40), rank: Number(score.rank) || 0, stars: Number(score.stars) || 0,
-          passed: !!score.passed, ranked, speedhack: !!score.speedhack, speedhackRate: Number(score.speedhackRate) || 1,
+          passed: !!score.passed, ranked, speedhack: !!score.speedhack, speedhackRate: Number(score.speedhackRate) || 1, mods: score.mods || {},
           accuracy: Number(score.accuracy), hits: Number(score.hits) || 0, pp: Number(score.pp) || 0,
           grade: String(score.grade || '—').slice(0, 12), time: Number(score.time) || 0, score: Number(score.score) || 0,
           graze: Number(score.graze) || 0, bombs: Number(score.bombs) || 0, createdAt: String(score.createdAt || new Date().toISOString()),

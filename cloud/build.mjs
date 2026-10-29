@@ -29,7 +29,7 @@ helpers = helpers.slice(0, verifierStart) + helpers.slice(verifierEnd);
 await fs.mkdir(path.join(output, 'edge'), { recursive: true });
 await fs.mkdir(path.join(output, 'firebase'), { recursive: true });
 await fs.writeFile(path.join(output, 'edge/engine-source.mjs'), 'export default ' + JSON.stringify({ gameSource, difficultySource, catalog }) + ';\n');
-for (const [from, to] of [['tas-tools/portable.mjs','portable.mjs'],['cloud/replay-verifier.mjs','replay-verifier.mjs'],['cloud/storage.mjs','storage.mjs']]) await fs.copyFile(path.join(root,from),path.join(output,'edge',to));
+for (const [from, to] of [['tas-tools/portable.mjs','portable.mjs'],['cloud/replay-verifier.mjs','replay-verifier.mjs'],['cloud/storage.mjs','storage.mjs'],['cloud/accounts.mjs','accounts.mjs']]) await fs.copyFile(path.join(root,from),path.join(output,'edge',to));
 const gatewaySource=await read('supabase/functions/game-storage/index.ts');
 const proxyHash=gatewaySource.match(/const TOKEN_SHA256 = '([0-9a-f]{64})'/)?.[1];
 if(!proxyHash)throw new Error('Trusted legacy-server token hash missing');

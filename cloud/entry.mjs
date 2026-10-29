@@ -1,15 +1,18 @@
 import { createHandler } from './handler.mjs';
 import { databaseClient } from './storage.mjs';
 import { makeReplayVerifier } from './replay-verifier.mjs';
+import { accountApi } from './accounts.mjs';
 const projectUrl = Deno.env.get('SUPABASE_URL');
 const secretKeys = JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS') || '{}');
 const secret = secretKeys.default || Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
 const publicKeys = Object.values(JSON.parse(Deno.env.get('SUPABASE_PUBLISHABLE_KEYS') || '{}'));
 if (Deno.env.get('SUPABASE_ANON_KEY')) publicKeys.push(Deno.env.get('SUPABASE_ANON_KEY'));
 if (!projectUrl || !secret || !publicKeys.length) throw new Error('Supabase environment unavailable');
-const handle = createHandler(databaseClient(projectUrl, secret), makeReplayVerifier(secret));
+const database = databaseClient(projectUrl, secret);
+const handle = createHandler(database, makeReplayVerifier(secret));
+const accounts = accountApi({database,projectUrl,secret,publicKey:publicKeys[0]});
 const trustedProxyTokenHash = '__TRUSTED_PROXY_HASH__';
-const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'content-type,apikey', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'no-store' };
+const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'content-type,apikey,authorization', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'no-store' };
 export async function serve(request) {
   if (request.method === 'OPTIONS') return new Response(null,{status:204,headers:cors});
   if (!publicKeys.includes(request.headers.get('apikey'))) return new Response(JSON.stringify({error:'Missing or invalid application API key'}),{status:401,headers:{...cors,'Content-Type':'application/json'}});
@@ -22,6 +25,17 @@ export async function serve(request) {
     if (hash === trustedProxyTokenHash) forwardedIp = request.headers.get('x-star-square-client-ip') || '';
   }
   const pathname = url.pathname.replace(/^\/(?:functions\/v1\/)?star-square-api(?=\/|$)/,'') || '/';
+  if(pathname.startsWith('/api/account')||pathname==='/api/chat') {
+    const response=await accounts.route(request,pathname);
+    return new Response(response.body,{status:response.status,headers:{...Object.fromEntries(response.headers),...cors}});
+  }
+  if(request.method==='POST'&&(pathname==='/api/sync'||pathname==='/api/scores')){
+    try{
+      const raw=await request.text();if(raw.length>12000000)throw Object.assign(new Error('Request too large'),{status:413});
+      const input=JSON.parse(raw);await accounts.protect(request,pathname,input);
+      request=new Request(request.url,{method:'POST',headers:request.headers,body:JSON.stringify(input)});
+    }catch(error){return new Response(JSON.stringify({error:error.status?error.message:'Invalid request'}),{status:error.status||400,headers:{...cors,'Content-Type':'application/json'}})}
+  }
   let status = 200, headers = {};
   const req = { url: pathname + url.search, method: request.method, headers: Object.fromEntries(request.headers),
     socket: { remoteAddress: request.headers.get('x-real-ip') || request.headers.get('cf-connecting-ip') || '' },
