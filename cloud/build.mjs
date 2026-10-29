@@ -56,7 +56,7 @@ export function createHandler(database, verifyReplayChunk) {
   };
 }
 `);
-for (const file of ['index.html','difficulty.js','difficulty-catalog.js','tas-library.js','tas-library.json','tas-verification.json']) await fs.copyFile(path.join(root,file),path.join(output,'firebase',file));
+for (const file of ['catch-mode.js','index.html','difficulty.js','difficulty-catalog.js','tas-library.js','tas-library.json','tas-verification.json']) await fs.copyFile(path.join(root,file),path.join(output,'firebase',file));
 const config = JSON.parse(await read('cloud/hosting-config.json'));
 await fs.writeFile(path.join(output,'firebase/api-config.js'), 'window.STAR_SQUARE_CLOUD=' + JSON.stringify(config) + ';\n');
 console.log('Built Firebase Hosting assets and Supabase API bundle.');
