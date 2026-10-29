@@ -35,7 +35,8 @@ export function makeReplayVerifier(secret) {
       scoreEngine.startScoreReplay(score.levelId, { weapon: score.weapon, upgrades: score.upgrades || {}, mods: score.mods || {}, seed: tape.seed });
       if (previous) scoreEngine.restore(previous.state);
       let ticks = previous?.ticks || 0, runIndex = previous?.runIndex || 0, runOffset = previous?.runOffset || 0;
-      const until = Math.min(tape.ticks, ticks + 2000);
+      // Keep each Edge request comfortably below CPU limits on dense patterns.
+      const until = Math.min(tape.ticks, ticks + 500);
       while (ticks < until && runIndex < tape.runs.length) {
         const [count, mask] = tape.runs[runIndex];
         scoreEngine.tick(mask); ticks++; runOffset++;
