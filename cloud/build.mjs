@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'dist');
 const read = name => fs.readFile(path.join(root, name), 'utf8');
-const html = await read('index.html'), difficultySource = await read('difficulty.js'), rawCatalog = await read('difficulty-catalog.js');
+const html = await read('index.html'), difficultySource = await read('difficulty.js'), archiveSource = await read('generated-archive.js'), rawCatalog = await read('difficulty-catalog.js');
 const gameSource = html.slice(html.indexOf('<script>') + 8, html.indexOf('</script>', html.indexOf('<script>'))).replace(/\r\n?/g, '\n');
 const marker = 'window.STAR_SQUARE_DIFFICULTY_CATALOG=';
 const catalog = JSON.parse(rawCatalog.slice(rawCatalog.indexOf(marker) + marker.length).trim().replace(/;$/, '')).map(({ key, version, stars, status }) => ({ key, version, stars, status }));
@@ -28,7 +28,7 @@ const verifierStart = helpers.indexOf('function verifyRankedRun('), verifierEnd 
 helpers = helpers.slice(0, verifierStart) + helpers.slice(verifierEnd);
 await fs.mkdir(path.join(output, 'edge'), { recursive: true });
 await fs.mkdir(path.join(output, 'firebase'), { recursive: true });
-await fs.writeFile(path.join(output, 'edge/engine-source.mjs'), 'export default ' + JSON.stringify({ gameSource, difficultySource, catalog }) + ';\n');
+await fs.writeFile(path.join(output, 'edge/engine-source.mjs'), 'export default ' + JSON.stringify({ gameSource, difficultySource, archiveSource, catalog }) + ';\n');
 for (const [from, to] of [['tas-tools/portable.mjs','portable.mjs'],['cloud/replay-verifier.mjs','replay-verifier.mjs'],['cloud/storage.mjs','storage.mjs'],['cloud/accounts.mjs','accounts.mjs']]) await fs.copyFile(path.join(root,from),path.join(output,'edge',to));
 const gatewaySource=await read('supabase/functions/game-storage/index.ts');
 const proxyHash=gatewaySource.match(/const TOKEN_SHA256 = '([0-9a-f]{64})'/)?.[1];
