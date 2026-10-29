@@ -502,8 +502,8 @@ function showTASLibrary(){
  ui('modal').innerHTML='<div class="treehead"><div><h1>PERFECT <span>TAS LIBRARY</span></h1>'+
  '<p>Zero hits · zero bombs · normal earned equipment. Input tapes replay through the actual game simulation.</p></div>'+
  '<button class="btn" id="tasBack">Dan tree</button></div>'+
- '<p class="sub">'+(compatible?'All '+Object.keys(library.tapes).length+' catalog levels have independently replayed, verified input tapes.':
- 'Replay tapes are unavailable or need regenerating for this game version.')+'</p>'+
+ '<p class="sub" id="tasLibraryStatus">'+(compatible?'All '+Object.keys(library.tapes).length+' catalog levels have independently replayed, verified input tapes.':
+ 'Replay tapes are unavailable or need regenerating for this game version. Reload the page once; if this persists, the published game files are out of sync.')+'</p>'+
  rankNames.map((name,rank)=>'<section class="danband"><div class="bandtitle"><b>'+danName(rank)+'</b></div><div class="levelgrid">'+
  levelDefs.filter(d=>d.rank===rank).map(d=>'<article class="levelnode"><small>'+d.skill+' · '+starMarkup(d)+'★</small>'+
  '<b>'+d.title+'</b><span>'+(library?.tapes[d.id]?(library.tapes[d.id].ticks/240).toFixed(1)+'s · 0 hits · 0 bombs':'Tape unavailable')+'</span>'+
@@ -514,16 +514,20 @@ function showTASLibrary(){
 }
 function watchTAS(id){
  const library=tasLibrary(),tape=library?.tapes[id];
- if(!tape||library.rulesHash!==tasRulesHash()){say('TAS tape version does not match the game');return}
- beginDemonstration(id,tape);
- replay={id,tape,index:0,remaining:tape.runs[0][0],paused:false,speed:1,verified:false};
- ui('tasPanel').hidden=false;
- ui('tasPause').onclick=()=>{replay.paused=!replay.paused;updateTASPanel()};
- ui('tasStep').onclick=()=>{replay.paused=true;replayTick();draw();updateTASPanel()};
- ui('tasSpeed').value='1';ui('tasSpeed').onchange=()=>{replay.speed=+ui('tasSpeed').value};
- ui('tasRestart').onclick=()=>{endDemonstration();watchTAS(id)};
- ui('tasLeave').onclick=()=>{endDemonstration();setMode('taslibrary')};
- configureReplayStudio();updateTASPanel();
+ if(!tape||!Array.isArray(tape.runs)||!tape.runs.length){say('No TAS tape is available for this level');return}
+ if(library.rulesHash!==tasRulesHash()){say('TAS tape version does not match this game build. Reload the page to get the matching files.');return}
+ try{
+  beginDemonstration(id,tape);
+  replay={id,source:'tas',tape,index:0,remaining:tape.runs[0][0],paused:false,speed:1,verified:false};
+  setMode('play');
+  ui('tasPanel').hidden=false;
+  ui('tasPause').onclick=()=>{replay.paused=!replay.paused;updateTASPanel()};
+  ui('tasStep').onclick=()=>{replay.paused=true;replayTick();draw();updateTASPanel()};
+  ui('tasSpeed').value='1';ui('tasSpeed').onchange=()=>{replay.speed=+ui('tasSpeed').value};
+  ui('tasRestart').onclick=()=>{endDemonstration();watchTAS(id)};
+  ui('tasLeave').onclick=()=>{endDemonstration();setMode('taslibrary')};
+  configureReplayStudio();updateTASPanel();
+ }catch(error){endDemonstration();setMode('taslibrary');const status=ui('tasLibraryStatus');if(status)status.textContent='Could not start this TAS: '+(error?.message||'unknown replay error');say('Could not start TAS. Try reloading the game page.')}
 }
 function replayTick(){
  if(!replay||levelResolved)return;

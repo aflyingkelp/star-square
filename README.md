@@ -1,5 +1,9 @@
 # STAR//SQUARE update
 
+## GitHub Pages mirror
+
+The repository now publishes the static game from `main` using `.github/workflows/pages.yml`. Once GitHub Pages is enabled for this repository with **Settings → Pages → Build and deployment → GitHub Actions**, the public URL is [https://aflyingkelp.github.io/star-square/](https://aflyingkelp.github.io/star-square/). Each push to `main` rebuilds `dist/firebase` and deploys it. The game still uses the Supabase API for accounts, scores, chat, and cloud saves; GitHub Pages only hosts the static client.
+
 ## Firebase Hosting and the independent cloud API
 
 Live game: [STAR//SQUARE](https://star-square-kelp.web.app). Firebase project: `star-square-kelp` (Spark, no billing linked). To publish an update, run `npm run build:cloud`, then `npx -y firebase-tools@latest deploy --only hosting`. The default project is recorded in `.firebaserc`.
