@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "star-square-kelp"
-  }
+  },
+  "targets": {
+    "star-square-kelp": {
+      "hosting": {
+        "default": [
+          "star-square-kelp"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
