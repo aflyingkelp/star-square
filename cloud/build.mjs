@@ -56,6 +56,7 @@ export function createHandler(database, verifyReplayChunk) {
   };
 }
 `);
+await fs.rm(path.join(output,'firebase','catch-mode.js'), { force: true });
 for (const file of ['generated-archive.js','index.html','difficulty.js','difficulty-catalog.js','tas-library.js','tas-library.json','tas-verification.json']) await fs.copyFile(path.join(root,file),path.join(output,'firebase',file));
 const config = JSON.parse(await read('cloud/hosting-config.json'));
 await fs.writeFile(path.join(output,'firebase/api-config.js'), 'window.STAR_SQUARE_CLOUD=' + JSON.stringify(config) + ';\n');
