@@ -291,6 +291,17 @@ const server = http.createServer(async (req, res) => {
         global: topRows(lists.global), country: topRows(lists.country(p.country)), region: topRows(lists.region(p.country,p.regionCode))
       } });
     }
+    if (url.pathname === '/api/top-plays' && req.method === 'GET') {
+      const profiles = await readProfiles(), plays = [];
+      for (const p of Object.values(profiles)) for (const run of Object.values(p.bestScores || {})) {
+        if (!run?.ranked || !Number.isFinite(Number(run.pp))) continue;
+        plays.push({ profileId: p.id, name: p.name, country: p.country, levelId: run.levelId,
+          title: run.title, pp: Number(run.pp), accuracy: Number(run.accuracy) || 0, score: Number(run.score) || 0,
+          stars: Number(run.stars) || 0, grade: run.grade || '—', createdAt: run.createdAt });
+      }
+      plays.sort((a,b) => b.pp-a.pp || b.accuracy-a.accuracy || b.score-a.score || String(a.profileId).localeCompare(String(b.profileId)));
+      return send(res, 200, plays.slice(0, 100).map((play, i) => ({ ...play, rank: i + 1 })));
+    }
     const levelBoardMatch = url.pathname.match(/^\/api\/leaderboards\/([\w-]{1,100})$/);
     if (levelBoardMatch && req.method === 'GET') {
       const profiles = await readProfiles(), levelId = levelBoardMatch[1];
