@@ -369,7 +369,7 @@ const server = http.createServer(async (req, res) => {
       });
       return result ? send(res, 200, result) : send(res, 404, { error: 'Map not found' });
     }
-    if (['/api-config.js','/tas-library.js','/tas-library.json','/tas-verification.json','/difficulty.js','/difficulty-catalog.js'].includes(url.pathname)) {
+    if (['/api-config.js','/tas-library.js','/tas-library.json','/tas-verification.json','/difficulty.js','/difficulty-catalog.js','/generated-archive.js'].includes(url.pathname)) {
       const name = url.pathname.slice(1), type = name.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'application/json; charset=utf-8';
       const content = await fs.readFile(path.join(root, name), 'utf8');
       if (type.startsWith('application/json')) return send(res, 200, JSON.parse(content));
