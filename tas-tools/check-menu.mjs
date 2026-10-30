@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const source=html.slice(html.indexOf('function nodeCard('),html.indexOf('\nfunction showTree('));
+const saved={clearedLevels:{entry:true},results:{},unrankedResults:{}};
+const def={id:'entry',skill:'Fundamentals',rank:0,title:'First Note'};
+const context=vm.createContext({saved,isUnlocked:()=>true,starMarkup:()=>1});
+vm.runInContext(source,context);
+const render=()=>context.nodeCard(def);
+assert.match(render(),/CLEARED · replay to record a best score/);
+saved.unrankedResults.entry={bestPP:3,bestHits:2,grade:'A'};
+assert.match(render(),/UNRANKED BEST 3 PP · 2 hits/);
+saved.results.entry={bestPP:10,bestHits:0,grade:'SS'};
+assert.match(render(),/>BEST 10 PP · 0 hits/);
+assert.doesNotMatch(render(),/UNRANKED BEST/);
+console.log('PASS Dan cards render missing, unranked-only, and ranked result records without losing clears.');
