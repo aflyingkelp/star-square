@@ -15,14 +15,6 @@ const assetStart = routes.lastIndexOf('    if (', routes.indexOf('      const na
 const notFound = routes.indexOf("    return send(res, 404, { error: 'Not found' });", assetStart);
 if (assetStart < 0 || notFound < 0) throw new Error('Server adapter boundaries changed');
 routes = routes.slice(0, assetStart) + routes.slice(notFound);
-const originalVerification = "      if (wantsRanked && !verifyRankedRun(score)) return send(res,422,{error:'Ranked replay did not match the submitted score'});";
-if (!routes.includes(originalVerification)) throw new Error('Score adapter boundary changed');
-routes = routes.replace(originalVerification, `      if (wantsRanked) {
-        const proof = await verifyReplayChunk(score, input.verification, { scoreEngine, officialLevels, expectedPp });
-        if (!proof.ok) return send(res, 422, { error: 'Ranked replay did not match the submitted score' });
-        if (!proof.complete) return send(res, 202, { pending: true, verification: proof.checkpoint, progress: proof.progress });
-      }`);
-routes = routes.replace("wantsRanked?'ranked-score':'score',wantsRanked?12:100", "input.verification?'verification-step':wantsRanked?'ranked-score':'score',input.verification?600:wantsRanked?12:100");
 let helpers = server.slice(server.indexOf('function send('), server.indexOf(begin));
 const verifierStart = helpers.indexOf('function verifyRankedRun('), verifierEnd = helpers.indexOf('function validScore(', verifierStart);
 helpers = helpers.slice(0, verifierStart) + helpers.slice(verifierEnd);
@@ -49,7 +41,7 @@ const useSupabase = true, requirePersistentStorage = true;
 const cloudProxy = null; // The Edge API handles requests itself; only Node can proxy.
 const process = { env: { GEOIP_LOOKUP: '1', TRUST_PROXY_HOPS: '1' } };
 ${helpers}
-export function createHandler(database, verifyReplayChunk) {
+export function createHandler(database) {
   return async (req,res) => {
     const { mutate, readMaps, writeMaps, readScores, writeScores, readProfiles, writeProfiles } = createStorage(database);
     ${routes}

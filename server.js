@@ -319,7 +319,7 @@ const server = http.createServer(async (req, res) => {
       if (!validScore(score)) return send(res, 400, { error: 'Invalid score or replay data' });
       const wantsRanked = score.ranked === true && !!score.passed && !score.practice && !score.custom && !score.speedhack && (!score.speedhackRate || Number(score.speedhackRate) === 1);
       if (!allowRequest(req,wantsRanked?'ranked-score':'score',wantsRanked?12:100,60_000)) return send(res,429,{error:'Score upload limit reached; retry in a minute'});
-      if (wantsRanked && !verifyRankedRun(score)) return send(res,422,{error:'Ranked replay did not match the submitted score'});
+      // Score uploads are accepted immediately; replay simulation is not a submission gate.
       const geo = await geoForRequest(req);
       const result = await mutate(async () => {
         const scores = await readScores(), prior = scores.find(item => item.clientId === score.id);

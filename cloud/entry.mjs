@@ -1,6 +1,5 @@
 import { createHandler } from './handler.mjs';
 import { databaseClient } from './storage.mjs';
-import { makeReplayVerifier } from './replay-verifier.mjs';
 import { accountApi } from './accounts.mjs';
 const projectUrl = Deno.env.get('SUPABASE_URL');
 const secretKeys = JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS') || '{}');
@@ -9,7 +8,7 @@ const publicKeys = Object.values(JSON.parse(Deno.env.get('SUPABASE_PUBLISHABLE_K
 if (Deno.env.get('SUPABASE_ANON_KEY')) publicKeys.push(Deno.env.get('SUPABASE_ANON_KEY'));
 if (!projectUrl || !secret || !publicKeys.length) throw new Error('Supabase environment unavailable');
 const database = databaseClient(projectUrl, secret);
-const handle = createHandler(database, makeReplayVerifier(secret));
+const handle = createHandler(database);
 const accounts = accountApi({database,projectUrl,secret,publicKey:publicKeys[0]});
 const trustedProxyTokenHash = '__TRUSTED_PROXY_HASH__';
 const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'content-type,apikey,authorization', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'no-store' };
