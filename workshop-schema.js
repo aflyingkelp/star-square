@@ -12,7 +12,8 @@ const png=a=>{
 const shots=list=>Array.isArray(list)&&list.length<=80&&new Set(list.map(g=>g?.id)).size===list.length&&list.every(g=>
  g&&typeof g.id==='string'&&g.id.length>0&&g.id.length<=48&&finite(g.angle,-Math.PI*8,Math.PI*8)&&finite(g.speed,.3,2.5)&&
  Number.isInteger(g.copies)&&finite(g.copies,1,48)&&finite(g.spread,0,360)&&finite(g.size,2,12)&&finite(g.spin,-5,5)&&finite(g.homing,0,8)&&
- ['pink','gold','cyan','violet'].includes(g.color)&&['fan','ring'].includes(g.mode));
+ (g.accel===undefined||finite(g.accel,-.08,.12))&&(g.gap===undefined||finite(g.gap,0,800))&&
+ ['pink','gold','cyan','violet'].includes(g.color)&&['fan','ring','wall','spiral','wave'].includes(g.mode)&&['straight','accelerate','curve','home'].includes(g.travel||'straight'));
 const distinct=keys=>new Set(keys.map(k=>k.time)).size===keys.length;
 export function validateLevel(level){
  if(!level||typeof level!=='object'||!Array.isArray(level.attacks)||level.attacks.length!==3||level.attacks.some(n=>!Number.isInteger(n)||n<0||n>14))return false;

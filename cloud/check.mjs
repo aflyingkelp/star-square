@@ -24,7 +24,7 @@ for(const id of ids){
     proof=await verify(score,checkpoint,{scoreEngine:createPortableEngine(bundle),officialLevels:levels,expectedPp});
     assert.equal(proof.ok,true,id+' chunk '+count);checkpoint=proof.checkpoint;count++;
     if(!firstProof&&checkpoint){firstScore=score;firstProof=checkpoint;}
-    assert.ok(count<650);
+    assert.ok(count<160);
   }while(!proof.complete);
   console.log('PASS signed checkpoint verification',id,count,'requests');
 }

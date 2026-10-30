@@ -22,7 +22,6 @@ export function createEngine(){
  vm.createContext(sandbox);
  vm.runInContext(fs.readFileSync(path.join(root,'difficulty.js'),'utf8'),sandbox,{filename:'difficulty.js'});
  vm.runInContext(fs.readFileSync(path.join(root,'difficulty-catalog.js'),'utf8'),sandbox,{filename:'difficulty-catalog.js'});
- vm.runInContext(fs.readFileSync(path.join(root,'generated-archive.js'),'utf8'),sandbox,{filename:'generated-archive.js'});
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
  const source=html.slice(html.indexOf('<script>')+8,html.indexOf('</script>',html.indexOf('<script>'))).replace(/\r\n?/g,'\n');
  vm.runInContext(source,sandbox,{filename:'star-square-engine.js'});

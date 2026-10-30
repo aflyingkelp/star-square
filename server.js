@@ -221,7 +221,7 @@ function verifyRankedRun(score) {
   return ok;
 }
 function validScore(score) {
-  const tape = score?.replay;if(score?.mods&&(typeof score.mods!=='object'||Array.isArray(score.mods)||Object.entries(score.mods).some(([key,value])=>!['HD','DT','HR'].includes(key)||typeof value!=='boolean')))return false;
+  const tape = score?.replay;if(score?.mods&&(typeof score.mods!=='object'||Array.isArray(score.mods)||Object.entries(score.mods).some(([key,value])=>!['HD','DT','HR','SD'].includes(key)||typeof value!=='boolean')))return false;
   if (!score || typeof score.id !== 'string' || score.id.length > 100 || !/^[\w-]{1,80}$/.test(String(score.profileId || '')) ||
       !/^[\w-]{1,100}$/.test(String(score.levelId || '')) || !Number.isFinite(+score.pp) || +score.pp < 0 || +score.pp > 100_000 ||
       !Number.isFinite(+score.accuracy) || +score.accuracy < 0 || +score.accuracy > 100 || !Number.isFinite(+score.score) ||
