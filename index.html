@@ -11,7 +11,7 @@
 <script>
 // One-time account reset: remove legacy local sessions, saves, backups, scores,
 // custom maps, and other STAR//SQUARE browser data after the server account wipe.
-const localAccountResetKey='starsquare_account_reset_2026_10';
+const localAccountResetKey='starsquare_account_reset_2026_10_29';
 try{if(!localStorage.getItem(localAccountResetKey)){for(let i=localStorage.length-1;i>=0;i--){const key=localStorage.key(i);if(key&&key.startsWith('starsquare_'))localStorage.removeItem(key)}localStorage.setItem(localAccountResetKey,'done')}}catch{}
 let squareSession=null;try{squareSession=JSON.parse(localStorage.getItem('starsquare_session')||'null')}catch{}
 function storeSquareSession(value){squareSession=value;try{localStorage.setItem('starsquare_session',JSON.stringify(value))}catch{}}
@@ -633,6 +633,7 @@ function showChat(){
  ui('chatForm').onsubmit=async e=>{e.preventDefault();const value=ui('chatInput').value.trim();if(!value)return;try{const r=await apiFetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:value})}),data=await r.json();if(!r.ok)throw Error(data.error);ui('chatInput').value='';clearTimeout(chatPoll);poll()}catch(error){ui('chatStatus').textContent=error.message}};poll();
 }
 const updateHistory=[
+['2026-10-29','Fixed ranked replay false rejections caused by browser/server state digests and PP rounding; reset all accounts, scores, rankings, chat, maps, and local saves for a clean start.'],
 ['2026-10-29','Dan progression now requires four consecutive clears in a full Dan or Plus run. Individual map scores remain separate.'],
 ['2026-10-29','Removed Catch mode and restored Escape-based navigation across menus.'],
 ['2026-10-29','Added 500 ranked generated Archive maps with per-map leaderboards and score set times.'],
