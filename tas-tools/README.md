@@ -2,7 +2,7 @@
 
 Open **Watch perfect TAS** on the title screen or **Perfect TAS library** in the dan tree. Every built-in level has its own input tape: 233 regular/Plus trials, 500 generated archive maps, 60 4K LN stages, and 60 7K LN stages. Use the category selector, search, and pagination to find a level. The viewer offers pause, playback speeds from 0.25× to 8×, one-tick stepping, a tick counter, and the held inputs. Escape pauses or resumes playback.
 
-A perfect tape must clear with zero hits and zero bombs. A demonstration uses only weapons and upgrades available after clearing the previous rank. Developer mode and noclip are disabled. Watching a demonstration does not award PP or change the player's stored progress.
+A perfect tape must clear with zero hits and zero bombs. Each tape carries its own optimized weapon and upgrade loadout; demonstration gear is separate from a player's ranked run. Developer mode and noclip are disabled. Watching a demonstration does not award PP or change the player's stored progress.
 
 Every Dan from Alpha through Omega has a four-lane Plus set, for 96 additional trials. Plus unlocks after clearing that base Dan, then progresses in order through Omega+. Plus pressure starts four ranks above the base Dan and rises toward rank 44; Omega+ keeps the 473 exact dash cues. The library contains a separately generated tape for every Plus trial.
 

@@ -9,6 +9,11 @@ console.log('PASS browser TAS library asset parses as JavaScript');
 const crlfEngine=createEngine({lineEnding:'crlf'});
 assert.equal(crlfEngine.engine.rulesHash(),library.rulesHash,'CRLF browser source must use the same TAS fingerprint as LF builds');
 console.log('PASS TAS fingerprint is stable across LF and CRLF browser builds');
+const optimized=createEngine();optimized.engine.start('ln7-0-3',{weapon:'needle',upgrades:{power:3,iframe:2}});
+assert.equal(optimized.engine.state().loadout.weapon,'needle');
+assert.equal(optimized.engine.state().loadout.upgrades.power,3);
+assert.equal(optimized.engine.state().loadout.upgrades.iframe,2);
+console.log('PASS TAS viewer accepts and restores an optimized weapon and upgrades');
 const {engine:a}=createEngine(),{engine:b}=createEngine();
 a.start('entry');b.start('entry');
 for(let i=0;i<4;i++){a.tick(2|128);b.tick(2|128)}

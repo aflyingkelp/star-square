@@ -3,7 +3,7 @@ import path from 'node:path';
 import {createEngine,root} from './headless.mjs';
 const {engine}=createEngine(),hash=engine.rulesHash(),args=process.argv.slice(2);
 const wanted=args.filter(x=>!x.startsWith('--'));
-let library={version:1,engineVersion:engine.version,rulesHash:hash,rate:240,policy:{hits:0,bombs:0,cheats:false,loadout:'earned-before-rank'},tapes:{}};
+let library={version:1,engineVersion:engine.version,rulesHash:hash,rate:240,policy:{hits:0,bombs:0,cheats:false,loadout:'tape-selected'},tapes:{}};
 const jsonPath=process.env.STAR_SQUARE_TAS_OUTPUT||path.join(root,'tas-library.json');
 if(fs.existsSync(jsonPath)){const old=JSON.parse(fs.readFileSync(jsonPath,'utf8'));if(old.rulesHash===hash)library=old}
 const levels=engine.levels().filter(d=>!wanted.length||wanted.includes(d.id));
@@ -51,7 +51,7 @@ function aimX(st,variant){
  return 400+Math.sin(age*.0035)*55;
 }
 function candidates(st,variant,ban){
- const p=st.player,hazards=forecast(st),targetX=aimX(st,variant),targetY=variant.frontline?clamp((st.boss?.y||90)+variant.y,70,540):variant.follow?Math.max(180,(st.boss?.y||100)+variant.y):variant.y,rows=[];
+ const p=st.player,hazards=forecast(st,variant.horizon||24),targetX=aimX(st,variant),targetY=variant.frontline?clamp((st.boss?.y||90)+variant.y,70,540):variant.follow?Math.max(180,(st.boss?.y||100)+variant.y):variant.y,rows=[];
  for(const [dx,dy] of directions)for(const speed of dx||dy?[1.1,2.3,5.4]:[2.3]){
   for(const dash of ((!st.isOmega||st.omega>=473)&&p.dashCooldown<=0&&!(st.mask&128)&&(dx||dy))?[false,true]:[false]){
    const mask=maskFor(dx,dy,speed)|(dash?128:0);if(ban?.has(mask))continue;
@@ -81,8 +81,8 @@ function candidates(st,variant,ban){
 }
 function compress(masks){const runs=[];for(const m of masks){const last=runs.at(-1);if(last&&last[1]===m)last[0]++;else runs.push([1,m])}return runs}
 function solve(level,variant){
- engine.start(level.id,{weapon:variant.weapon});let st=engine.state();
- const record=[],history=[];let rollbacks=0,decisions=0,lastLog=Date.now(),lastHP=Infinity,lastDamageTick=0;
+ engine.start(level.id,{weapon:variant.weapon||(level.lnSeries==='ln7'?'needle':undefined),upgrades:variant.upgrades});let st=engine.state();
+ const record=[],history=[],decisionFrames=variant.decisionFrames||16,historyLimit=variant.historyLimit||18;let rollbacks=0,decisions=0,lastLog=Date.now(),lastHP=Infinity,lastDamageTick=0;
  for(;;){
   st=engine.state();st.rank=level.pressureRank??level.rank;st.isOmega=level.omega;
   if(st.boss&&st.boss.hp<lastHP){lastHP=st.boss.hp;lastDamageTick=st.tick}
@@ -98,13 +98,13 @@ function solve(level,variant){
   if(st.tick>240*240||rollbacks>(variant.frontline?240:600))return null;
   const snap=engine.snapshot(),ban=new Set(),entry={snap,length:record.length,ban,mask:null};
   const rows=candidates(st,variant,ban);let accepted=false;
-  for(const row of rows.slice(0,12)){
+  for(const row of rows.slice(0,variant.candidateWidth||12)){
    engine.restore(snap);advance.tick=st.tick;
-   const masks=[];advance(row.mask,16,level.omega,masks);
+   const masks=[];advance(row.mask,decisionFrames,level.omega,masks);
    const next=engine.state();if(next.hits||next.bombs)continue;
    entry.mask=row.mask;record.push(...masks);accepted=true;break;
   }
-  if(accepted){history.push(entry);if(history.length>18)history.shift();decisions++;continue}
+  if(accepted){history.push(entry);if(history.length>historyLimit)history.shift();decisions++;continue}
   if(!history.length)return null;
   rollbacks++;
   let back=1+(Math.floor(rollbacks/30)%16);
@@ -112,8 +112,8 @@ function solve(level,variant){
   const checkpoint=history.pop();record.length=checkpoint.length;checkpoint.ban.add(checkpoint.mask);
   engine.restore(checkpoint.snap);const restored=engine.state();restored.rank=level.pressureRank??level.rank;restored.isOmega=level.omega;
   const alternatives=candidates(restored,variant,checkpoint.ban);let recovered=false;
-  for(const row of alternatives.slice(0,22)){
-   engine.restore(checkpoint.snap);advance.tick=restored.tick;const masks=[];advance(row.mask,16,level.omega,masks);
+  for(const row of alternatives.slice(0,variant.recoveryWidth||22)){
+   engine.restore(checkpoint.snap);advance.tick=restored.tick;const masks=[];advance(row.mask,decisionFrames,level.omega,masks);
    if(engine.state().hits)continue;
    checkpoint.mask=row.mask;record.push(...masks);history.push(checkpoint);recovered=true;break;
   }
@@ -140,6 +140,9 @@ for(const level of levels){
  if(library.tapes[level.id]&&!args.includes('--force')){console.log('CACHED '+level.id);continue}
  const started=Date.now();let tape=null;
  const variants=[{y:65,frontline:true,margin:4,aim:.18},{y:110,frontline:true,margin:4,aim:.15},{y:420,margin:3,aim:.028},{y:340,margin:3,aim:.04,weapon:level.rank>=2?'needle':undefined},{y:350,margin:3,aim:.2,weapon:level.rank>=2?'needle':undefined},{y:130,follow:true,margin:3,aim:.06,weapon:level.rank>=4?'fan':undefined},{y:500,margin:2,aim:.018},{y:340,margin:4,aim:.03},{y:280,margin:3,aim:.035},{y:440,margin:6,aim:.012}];
+ const optimizedUpgrades={power:3,fire:3,hearts:2,bomb:2,dash:3,iframe:2,graze:2,breather:2};
+ if(args.includes('--wide-search'))variants.unshift(...[65,110,180,250].flatMap(y=>[.35,.8].map(aim=>({y,frontline:true,margin:0,aim,horizon:48,decisionFrames:8,historyLimit:48,candidateWidth:49,recoveryWidth:49,weapon:level.lnSeries==='ln7'?'needle':undefined,upgrades:level.lnSeries==='ln7'?optimizedUpgrades:undefined}))));
+ if(args.includes('--precision-search'))variants.unshift(...[65,110,180].flatMap(y=>[.18,.5].map(aim=>({y,frontline:true,margin:0,aim,horizon:24,decisionFrames:2,historyLimit:144}))));
  if(args.includes('--aggressive'))variants.unshift({y:310,margin:3,aim:.05,weapon:level.rank>=2?'needle':undefined});
  if(args.includes('--chase'))variants.unshift({y:350,margin:3,aim:.2,weapon:level.rank>=2?'needle':undefined});
  for(const variant of variants){console.log('PLAN '+level.id+' '+JSON.stringify(variant));tape=solve(level,variant);if(tape)break}
