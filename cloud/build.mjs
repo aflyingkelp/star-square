@@ -8,6 +8,9 @@ const html = await read('index.html'), difficultySource = await read('difficulty
 const gameSource = html.slice(html.indexOf('<script>') + 8, html.indexOf('</script>', html.indexOf('<script>'))).replace(/\r\n?/g, '\n');
 const marker = 'window.STAR_SQUARE_DIFFICULTY_CATALOG=';
 const catalog = JSON.parse(rawCatalog.slice(rawCatalog.indexOf(marker) + marker.length).trim().replace(/;$/, ''));
+// The verifier needs only base and precomputed DT ratings. Keep full analyzer
+// diagnostics and timing sections in the browser catalog, not the Edge bundle.
+const edgeCatalog = catalog.map(({ key, stars, dtStars }) => ({ key, stars, dtStars }));
 const server = (await read('server.js')).replace(/\r\n?/g, '\n');
 const begin = 'const server = http.createServer(async (req, res) => {';
 let routes = server.slice(server.indexOf(begin) + begin.length, server.lastIndexOf('\n});'));
@@ -22,7 +25,7 @@ const ppStart = helpers.indexOf('function expectedPp('), ppEnd = helpers.indexOf
 if (ppStart >= 0 && ppEnd > ppStart) helpers = helpers.slice(0, ppStart) + helpers.slice(ppEnd);
 await fs.mkdir(path.join(output, 'edge'), { recursive: true });
 await fs.mkdir(path.join(output, 'firebase'), { recursive: true });
-await fs.writeFile(path.join(output, 'edge/engine-source.mjs'), 'export default ' + JSON.stringify({ gameSource, difficultySource, archiveSource, catalog }) + ';\n');
+await fs.writeFile(path.join(output, 'edge/engine-source.mjs'), 'export default ' + JSON.stringify({ gameSource, difficultySource, archiveSource, catalog: edgeCatalog }) + ';\n');
 for (const [from, to] of [['tas-tools/portable.mjs','portable.mjs'],['cloud/replay-verifier.mjs','replay-verifier.mjs'],['cloud/storage.mjs','storage.mjs'],['cloud/accounts.mjs','accounts.mjs']]) await fs.copyFile(path.join(root,from),path.join(output,'edge',to));
 const gatewaySource=await read('supabase/functions/game-storage/index.ts');
 const proxyHash=gatewaySource.match(/const TOKEN_SHA256 = '([0-9a-f]{64})'/)?.[1];

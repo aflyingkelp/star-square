@@ -34,14 +34,15 @@ for(const id of ids){
   console.log('PASS signed checkpoint verification',id,count,'requests');
 }
 assert.equal((await verify({...firstScore,pp:firstScore.pp+1},firstProof,{scoreEngine:createPortableEngine(bundle),officialLevels:levels,expectedPp,difficultyResults})).ok,false);
-const firstDifficulty=difficultyResults.get(firstScore.levelId),dtDifficulty=difficultyAPI.afterMods(firstDifficulty,{DT:true});
-const noModPP=expectedPp(firstScore.stars,0,0,{},firstDifficulty),dtPP=expectedPp(firstScore.stars,0,0,{DT:true},firstDifficulty);
+const firstDifficulty=difficultyResults.get(firstScore.levelId),testStars=Math.max(3,firstScore.stars),dtDifficulty=difficultyAPI.afterMods({...firstDifficulty,stars:testStars},{DT:true});
+const testDifficulty={...firstDifficulty,stars:testStars};
+const noModPP=expectedPp(testStars,0,0,{},testDifficulty),dtPP=expectedPp(testStars,0,0,{DT:true},testDifficulty);
 assert.equal(dtPP,expectedPp(dtDifficulty.stars,0,0,{}));
 assert.notEqual(dtPP,Math.round(noModPP*1.12*100)/100,'DT PP must come from adjusted difficulty, not a flat 12% bonus');
-assert.equal(expectedPp(firstScore.stars,0,0,{HD:true},firstDifficulty),Math.round(noModPP*1.2*100)/100);
-assert(expectedPp(firstScore.stars,0,0,{HR:true},firstDifficulty)>noModPP);
-const allModsPP=expectedPp(firstScore.stars,0,0,{HD:true,DT:true,HR:true},firstDifficulty);
+assert.equal(expectedPp(testStars,0,0,{HD:true},testDifficulty),Math.round(noModPP*1.2*100)/100);
+assert(expectedPp(testStars,0,0,{HR:true},testDifficulty)>noModPP);
+const allModsPP=expectedPp(testStars,0,0,{HD:true,DT:true,HR:true},{...firstDifficulty,stars:testStars});
 assert(allModsPP>dtPP&&allModsPP<Math.round(noModPP*1.5*100)/100);
-assert.equal(expectedPp(firstScore.stars,0,0,{DT:true},firstDifficulty,true),Math.round(noModPP*1.12*100)/100,'previously saved DT scores remain uploadable');
+assert.equal(expectedPp(testStars,0,0,{DT:true},testDifficulty,true),Math.round(noModPP*1.12*100)/100,'previously saved DT scores remain uploadable');
 assert.equal((await verify(firstScore,firstProof.slice(0,-4)+'AAAA',{scoreEngine:createPortableEngine(bundle),officialLevels:levels,expectedPp,difficultyResults})).ok,false);
 console.log('PASS altered scores and modified checkpoints rejected');
