@@ -139,8 +139,8 @@ async function geoForRequest(req) {
     return null;
   }
 }
-function weightedPP(scores) {
-  const values = Object.values(scores || {}).filter(row => Number.isFinite(row.pp) && row.pp >= 0).map(row => row.pp).sort((a,b) => b-a);
+function weightedPP(scores, includeLN = false) {
+  const values = Object.entries(scores || {}).filter(([levelId, row]) => (includeLN || !/^ln[47]-/i.test(levelId)) && Number.isFinite(row.pp) && row.pp >= 0).map(([, row]) => row.pp).sort((a,b) => b-a);
   return Math.round(values.reduce((sum, value, i) => sum + value * Math.pow(0.95, i), 0) * 100) / 100;
 }
 function profileFor(profiles, id, name, geo) {
@@ -149,7 +149,7 @@ function profileFor(profiles, id, name, geo) {
   if (name) p.name = String(name).replace(/[<>\u0000-\u001f]/g, '').trim().slice(0, 32) || p.name;
   if (geo) { p.country = geo.country; p.regionCode = geo.regionCode; p.regionName = geo.regionName; p.locationUpdatedAt = new Date().toISOString(); }
   p.rankedPP = weightedPP(p.bestScores);
-  p.unrankedPP = weightedPP(p.unrankedBestScores);
+  p.unrankedPP = weightedPP(p.unrankedBestScores, true);
   return p;
 }
 function sortProfiles(rows) {
@@ -168,6 +168,15 @@ function positionsFor(p, lists) {
   return { global: position(lists.global), country: position(lists.country(p.country)), region: position(lists.region(p.country, p.regionCode)) };
 }
 function refreshRanks(profiles, activeId) {
+  for (const p of Object.values(profiles)) {
+    p.bestScores ||= {}; p.unrankedBestScores ||= {};
+    for (const [levelId, run] of Object.entries(p.bestScores)) if (/^ln[47]-/i.test(levelId)) {
+      const prior = p.unrankedBestScores[levelId];
+      if (!prior || Number(run.pp) > Number(prior.pp) || Number(run.pp) === Number(prior.pp) && Number(run.score) > Number(prior.score)) p.unrankedBestScores[levelId] = { ...run, ranked: false };
+      delete p.bestScores[levelId];
+    }
+    p.rankedPP = weightedPP(p.bestScores); p.unrankedPP = weightedPP(p.unrankedBestScores, true);
+  }
   const lists = rankedLists(profiles), at = new Date().toISOString();
   for (const p of Object.values(profiles)) {
     const ranks = positionsFor(p, lists), last = p.rankHistory?.at(-1);
@@ -252,7 +261,7 @@ function upsertBest(profile, score, ranked) {
   ranked = !!ranked && !/^ln[47]-/i.test(String(score.levelId || ''));
   const bag = ranked ? profile.bestScores : profile.unrankedBestScores, row = normalizeRun(score, ranked), prior = bag[row.levelId];
   if (!prior || row.pp > prior.pp || row.pp === prior.pp && row.score > prior.score || row.pp === prior.pp && row.score === prior.score && row.accuracy > prior.accuracy) bag[row.levelId] = row;
-  profile.rankedPP = weightedPP(profile.bestScores); profile.unrankedPP = weightedPP(profile.unrankedBestScores);
+  profile.rankedPP = weightedPP(profile.bestScores); profile.unrankedPP = weightedPP(profile.unrankedBestScores, true);
 }
 function topRows(rows, count = 50) { return rows.slice(0, count).map((p, i) => ({ rank: i + 1, id: p.id, name: p.name, pp: p.rankedPP || 0, country: p.country, regionCode: p.regionCode })); }
 
@@ -342,7 +351,7 @@ const server = http.createServer(async (req, res) => {
       const result = await mutate(async () => {
         const scores = await readScores(), kept = scores.filter(row => row.profileId !== profileId || !/^ln[47]-/i.test(String(row.levelId || ''))), removed = scores.length - kept.length;
         const profiles = await readProfiles(), profile = profiles[profileId];
-        if (profile) { for (const key of Object.keys(profile.bestScores || {})) if (/^ln[47]-/i.test(key)) delete profile.bestScores[key]; for (const key of Object.keys(profile.unrankedBestScores || {})) if (/^ln[47]-/i.test(key)) delete profile.unrankedBestScores[key]; profile.rankedPP=weightedPP(profile.bestScores); profile.unrankedPP=weightedPP(profile.unrankedBestScores); }
+        if (profile) { for (const key of Object.keys(profile.bestScores || {})) if (/^ln[47]-/i.test(key)) delete profile.bestScores[key]; for (const key of Object.keys(profile.unrankedBestScores || {})) if (/^ln[47]-/i.test(key)) delete profile.unrankedBestScores[key]; profile.rankedPP=weightedPP(profile.bestScores); profile.unrankedPP=weightedPP(profile.unrankedBestScores,true); }
         const lists=refreshRanks(profiles,profileId); await writeScores(kept); await writeProfiles(profiles); return {removed,rankedPP:profile?.rankedPP||0,ranks:profile?positionsFor(profile,lists):null};
       });
       return send(res, 200, result);

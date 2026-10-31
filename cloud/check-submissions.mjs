@@ -15,7 +15,9 @@ response=await submit(score);assert.equal(response.status,200);assert.equal(resp
 response=await submit({...score,id:'sd-on',mods:{...score.mods,SD:true}});assert.equal(response.status,201);
 response=await submit({...score,id:'ln-ranked-client',levelId:'ln4-0-0',ranked:true});assert.equal(response.status,201);assert.equal(response.result.ranked,false);assert(!state.profiles['check-user'].bestScores['ln4-0-0']);assert(state.profiles['check-user'].unrankedBestScores['ln4-0-0']);
 state.scores.push({...score,id:'legacy-ln',clientId:'legacy-ln',levelId:'ln7-4-1',ranked:true});state.profiles['check-user'].bestScores['ln7-4-1']={levelId:'ln7-4-1',pp:15,score:15,accuracy:100};
+state.profiles['legacy-user']={id:'legacy-user',name:'Old LN player',bestScores:{'ln7-9-0':{levelId:'ln7-9-0',pp:150,score:150,accuracy:100}},unrankedBestScores:{},rankedPP:150,unrankedPP:0,rankHistory:[]};
 response=await request('/api/sync',{id:'check-user',name:'Square'});assert.equal(response.status,200);assert.equal(state.scores.find(run=>run.clientId==='legacy-ln').ranked,false);assert(!state.profiles['check-user'].bestScores['ln7-4-1']);assert(state.profiles['check-user'].unrankedBestScores['ln7-4-1']);
+assert.equal(state.profiles['check-user'].rankedPP,10);assert.equal(state.profiles['legacy-user'].rankedPP,0);assert(state.profiles['legacy-user'].unrankedBestScores['ln7-9-0']);
 response=await submit({...score,id:'bad-replay',replay:{ticks:2,runs:[[1,0]]}});assert.equal(response.status,400);
 response=await submit({...score,id:'bad-mod',mods:{SD:'yes'}});assert.equal(response.status,400);
 console.log('PASS ranked SD-off/SD-on submissions accepted; LN scores forced unranked; retries deduplicate; malformed data rejected.');
