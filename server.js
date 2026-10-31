@@ -249,6 +249,7 @@ function normalizeRun(score, ranked) {
     stars: Number(score.stars) || 0, grade: String(score.grade || '—').slice(0, 12), createdAt: String(score.createdAt || new Date().toISOString()), ranked };
 }
 function upsertBest(profile, score, ranked) {
+  ranked = !!ranked && !/^ln[47]-/i.test(String(score.levelId || ''));
   const bag = ranked ? profile.bestScores : profile.unrankedBestScores, row = normalizeRun(score, ranked), prior = bag[row.levelId];
   if (!prior || row.pp > prior.pp || row.pp === prior.pp && row.score > prior.score || row.pp === prior.pp && row.score === prior.score && row.accuracy > prior.accuracy) bag[row.levelId] = row;
   profile.rankedPP = weightedPP(profile.bestScores); profile.unrankedPP = weightedPP(profile.unrankedBestScores);
@@ -290,8 +291,16 @@ const server = http.createServer(async (req, res) => {
       const geo = await geoForRequest(req);
       const result = await mutate(async () => {
         const profiles = await readProfiles(), p = profileFor(profiles, id, name, geo);
-        // Repair a stale profile total from score records that the server already accepted.
-        for (const run of await readScores()) if (run.profileId === id && run.passed) upsertBest(p, run, run.ranked === true);
+        // Repair stale totals and demote legacy LN records to unranked.
+        const scores = await readScores(); let scoresChanged = false;
+        for (const run of scores) if (run.profileId === id) {
+          if (/^ln[47]-/i.test(String(run.levelId || '')) && run.ranked) { run.ranked = false; scoresChanged = true; }
+          if (run.passed) upsertBest(p, run, run.ranked === true);
+        }
+        for (const [levelId, run] of Object.entries(p.bestScores || {})) if (/^ln[47]-/i.test(levelId)) {
+          upsertBest(p, run, false); delete p.bestScores[levelId];
+        }
+        if (scoresChanged) await writeScores(scores);
         const lists = refreshRanks(profiles, id); await writeProfiles(profiles); const ranks = positionsFor(p, lists);
         return { profile: publicProfile(p), ranks, top: { global: topRows(lists.global), country: topRows(lists.country(p.country)), region: topRows(lists.region(p.country,p.regionCode)) } };
       });
@@ -341,7 +350,7 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === '/api/scores' && req.method === 'POST') {
       const input = await body(req), score = input.score;
       if (!validScore(score)) return send(res, 400, { error: 'Invalid score or replay data' });
-      const wantsRanked = score.ranked === true && !!score.passed && !score.practice && !score.custom && !score.speedhack && (!score.speedhackRate || Number(score.speedhackRate) === 1);
+      const wantsRanked = score.ranked === true && !/^ln[47]-/i.test(String(score.levelId || '')) && !!score.passed && !score.practice && !score.custom && !score.speedhack && (!score.speedhackRate || Number(score.speedhackRate) === 1);
       if (!allowRequest(req,wantsRanked?'ranked-score':'score',wantsRanked?12:100,60_000)) return send(res,429,{error:'Score upload limit reached; retry in a minute'});
       // Score uploads are accepted immediately; replay simulation is not a submission gate.
       const geo = await geoForRequest(req);

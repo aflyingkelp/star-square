@@ -32,7 +32,16 @@ function squareDifficultyModule() {
   function combined(skills) { return Math.pow(skills.reduce((sum, v) => sum + Math.pow(v, 2.2), 0), 1 / 2.2); }
   function calibrate(result,def,baselines) {
     const rawStars=Number.isFinite(+result.rawStars)?+result.rawStars:+result.stars;
-    return {...result,rawStars,stars:Math.round(Math.max(0,rawStars)*100)/100,laneAdjustment:0,balanced:true};
+    // LN Dan charts use a separate SR scale from the standard Dan ladder.
+    // Anchor the final 4K and 7K tiers to published community chart ratings
+    // (4K Yume 8.27★; 7K LN Phase III Gamma 9.23★ / Zenith 10.46★).
+    // Apply the difference smoothly by tier so every LN course stage moves
+    // with its ladder, while normal Dans keep their measured-pattern rating.
+    const lnIndex=Number(def?.lnIndex),lnSeries=def?.lnSeries;
+    const lnLift=lnSeries==='ln4' ? 2.52*Math.max(0,Math.min(1,lnIndex/14))
+      : lnSeries==='ln7' ? 1.46*Math.max(0,Math.min(1,lnIndex/14)) : 0;
+    const stars=Math.round(Math.max(0,rawStars+lnLift)*100)/100;
+    return {...result,rawStars,stars,laneAdjustment:Math.round(lnLift*100)/100,balanced:true};
   }
   function afterMods(result,mods={}) {
     if(!result||!mods.DT)return result;
