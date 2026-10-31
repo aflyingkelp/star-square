@@ -4,7 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {webcrypto} from 'node:crypto';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-export function createEngine(){
+export function createEngine({lineEnding='lf'}={}){
  const elements=new Map(),listeners={},drawCalls=[],frames=new Map();let frameID=0;
  const gradient={addColorStop(){}};
  const ctx=new Proxy({drawImage:(...args)=>drawCalls.push(args),createLinearGradient:()=>gradient,createRadialGradient:()=>gradient},{get:(t,k)=>t[k]||(()=>{})});
@@ -24,7 +24,8 @@ export function createEngine(){
  vm.runInContext(fs.readFileSync(path.join(root,'difficulty-catalog.js'),'utf8'),sandbox,{filename:'difficulty-catalog.js'});
  vm.runInContext(fs.readFileSync(path.join(root,'generated-archive.js'),'utf8'),sandbox,{filename:'generated-archive.js'});
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
- const source=html.slice(html.indexOf('<script>')+8,html.indexOf('</script>',html.indexOf('<script>'))).replace(/\r\n?/g,'\n');
+ const rawSource=html.slice(html.indexOf('<script>')+8,html.indexOf('</script>',html.indexOf('<script>')));
+ const source=lineEnding==='crlf'?rawSource.replace(/\r\n?/g,'\n').replace(/\n/g,'\r\n'):rawSource.replace(/\r\n?/g,'\n');
  vm.runInContext(source,sandbox,{filename:'star-square-engine.js'});
  return {engine:sandbox.SquareTAS,sandbox,elements,listeners,local,drawCalls,renderFrame(now){const batch=[...frames.values()];frames.clear();for(const fn of batch)fn(now)}};
 }

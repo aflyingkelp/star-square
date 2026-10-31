@@ -3,6 +3,9 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import {createEngine,root} from './headless.mjs';
 const library=JSON.parse(fs.readFileSync(path.join(root,'tas-library.json'),'utf8'));
+const crlfEngine=createEngine({lineEnding:'crlf'});
+assert.equal(crlfEngine.engine.rulesHash(),library.rulesHash,'CRLF browser source must use the same TAS fingerprint as LF builds');
+console.log('PASS TAS fingerprint is stable across LF and CRLF browser builds');
 const {engine:a}=createEngine(),{engine:b}=createEngine();
 a.start('entry');b.start('entry');
 for(let i=0;i<4;i++){a.tick(2|128);b.tick(2|128)}
