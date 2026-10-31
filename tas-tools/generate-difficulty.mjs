@@ -7,7 +7,7 @@ const factory=Function('return '+sandbox.SquareStarRating.runtimeSource())();
 const allDefs=engine.levels(),shardCount=Math.max(1,Number(process.env.STAR_SQUARE_DIFFICULTY_SHARDS)||1),shard=Number(process.env.STAR_SQUARE_DIFFICULTY_SHARD)||0;
 const defs=allDefs.filter((_,i)=>i%shardCount===shard),results=[];
 for(let i=0;i<defs.length;i++){
- const def=defs[i],old=previous[allDefs.indexOf(def)],reusable=old&&Number.isFinite(+old.rawStars);
+ const def=defs[i],old=previous[allDefs.indexOf(def)],oldDefinition=old?.key?.slice(old.key.indexOf(':')+1),newDefinition=api.key(def).slice(api.key(def).indexOf(':')+1),reusable=old&&oldDefinition===newDefinition&&Number.isFinite(+old.rawStars);
  const result=reusable?{...old,version:api.VERSION,stars:+old.rawStars,key:api.key(def)}:await api.analyze(def,factory);
  results.push({...result,rawStars:Number.isFinite(+result.rawStars)?+result.rawStars:+result.stars,rank:def.rank,skill:def.skill,key:api.key(def)});
  if(results.length%10===0)console.log('Calculated '+results.length+'/'+defs.length+' map ratings');
