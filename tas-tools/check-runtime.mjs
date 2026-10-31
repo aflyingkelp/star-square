@@ -1,8 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import {createEngine,root} from './headless.mjs';
 const library=JSON.parse(fs.readFileSync(path.join(root,'tas-library.json'),'utf8'));
+new vm.Script(fs.readFileSync(path.join(root,'tas-library.js'),'utf8'),{filename:'tas-library.js'});
+console.log('PASS browser TAS library asset parses as JavaScript');
 const crlfEngine=createEngine({lineEnding:'crlf'});
 assert.equal(crlfEngine.engine.rulesHash(),library.rulesHash,'CRLF browser source must use the same TAS fingerprint as LF builds');
 console.log('PASS TAS fingerprint is stable across LF and CRLF browser builds');
