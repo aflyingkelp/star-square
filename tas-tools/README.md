@@ -1,6 +1,6 @@
 # Perfect TAS demonstrations
 
-Open **Watch perfect TAS** on the title screen or **Perfect TAS library** in the dan tree. Every catalog trial has its own input tape. The viewer offers pause, playback speeds from 0.25× to 8×, one-tick stepping, a tick counter, and the held inputs. Escape pauses or resumes playback.
+Open **Watch perfect TAS** on the title screen or **Perfect TAS library** in the dan tree. Every built-in level has its own input tape: 233 regular/Plus trials, 500 generated archive maps, 60 4K LN stages, and 60 7K LN stages. Use the category selector, search, and pagination to find a level. The viewer offers pause, playback speeds from 0.25× to 8×, one-tick stepping, a tick counter, and the held inputs. Escape pauses or resumes playback.
 
 A perfect tape must clear with zero hits and zero bombs. A demonstration uses only weapons and upgrades available after clearing the previous rank. Developer mode and noclip are disabled. Watching a demonstration does not award PP or change the player's stored progress.
 
@@ -31,4 +31,6 @@ Generation reuses compatible verified tapes. To re-plan a single trial:
 npm run tas:generate -- jack-20 --force
 ```
 
-Verification checks all 233 catalog levels, zero hits, zero bombs, equipment eligibility, clear timing, end-state checksums, and save isolation. It also corrupts a required timing input in each Omega and Omega+ tape and confirms that the altered run cannot clear.
+Verification checks all 853 catalog levels, zero hits, zero bombs, equipment eligibility, clear timing, end-state checksums, and save isolation. It also corrupts a required timing input in each Omega and Omega+ tape and confirms that the altered run cannot clear.
+
+For parallel generation, set STAR_SQUARE_TAS_OUTPUT to a separate JSON file for each worker. Workers independently verify their tapes before saving; merge their outputs only when the rulesHash matches the current engine, then run tas:verify on the complete library.

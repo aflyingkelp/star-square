@@ -6,6 +6,7 @@ const libraryBytes=fs.readFileSync(path.join(root,'tas-library.json'),'utf8');
 const library=JSON.parse(libraryBytes),{engine:catalog}=createEngine(),levels=catalog.levels();
 if(library.rulesHash!==catalog.rulesHash())throw Error('Library engine hash is stale; regenerate tapes.');
 if(levels.some(level=>!library.tapes[level.id]))throw Error('Missing catalog tapes: '+levels.filter(d=>!library.tapes[d.id]).map(d=>d.id).join(', '));
+const wanted=process.argv.slice(2).filter(arg=>!arg.startsWith('--'));const selected=levels.filter(level=>!wanted.length||wanted.includes(level.id));
 const reports=[];
 function runTape(level,tape,mutate=false){
  const ctx=createEngine(),api=ctx.engine,before=JSON.stringify([...ctx.local.entries()]);
@@ -28,17 +29,17 @@ function runTape(level,tape,mutate=false){
  api.stop();
  if(JSON.stringify([...ctx.local.entries()])!==before)throw Error('Demonstration changed persisted progress '+level.id);
  return {id:level.id,title:level.title,stars:level.stars,ticks:tick,seconds:tick/240,hits:st.hits,bombs:st.bombs,
-  perfectInputs:level.omega?st.omega:0,digest,loadout:st.loadout,verified:true};
+  perfectInputs:level.omega?st.omega:0,digest,loadout:structuredClone(st.loadout),verified:true};
 }
-for(const level of levels){
+for(const level of selected){
  reports.push(runTape(level,library.tapes[level.id]));
  if(level.omega)runTape(level,library.tapes[level.id],true);
  console.log('PASS '+level.id+' '+(reports.at(-1).seconds).toFixed(2)+'s · 0 hits · 0 bombs'+(level.omega?' · 473/473 + rejected corrupted timing':''));
 }
 const report={version:1,rulesHash:library.rulesHash,librarySHA256:createHash('sha256').update(libraryBytes).digest('hex'),
- levelCount:levels.length,verifiedCount:reports.length,allPassed:true,policy:library.policy,
+ levelCount:selected.length,verifiedCount:reports.length,allPassed:true,policy:library.policy,
  checks:['Fresh game instance per tape','Actual game physics and collision rules','Earned loadout before the level rank',
  'No bomb or developer-mode inputs','Zero recorded hits','Expected clear tick and state checksum',
  'Omega 473 exact 240 Hz inputs','Omega corrupted timing cannot clear','Persistent player save unchanged'],levels:reports};
-fs.writeFileSync(path.join(root,'tas-verification.json'),JSON.stringify(report,null,2));
-console.log('ALL '+reports.length+' CATALOG LEVELS VERIFIED.');
+fs.writeFileSync(process.env.STAR_SQUARE_TAS_REPORT||path.join(root,'tas-verification.json'),JSON.stringify(report,null,2));
+console.log('ALL '+reports.length+' SELECTED CATALOG LEVELS VERIFIED.');

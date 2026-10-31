@@ -4,7 +4,7 @@ import {createEngine,root} from './headless.mjs';
 const {engine}=createEngine(),hash=engine.rulesHash(),args=process.argv.slice(2);
 const wanted=args.filter(x=>!x.startsWith('--'));
 let library={version:1,engineVersion:engine.version,rulesHash:hash,rate:240,policy:{hits:0,bombs:0,cheats:false,loadout:'earned-before-rank'},tapes:{}};
-const jsonPath=path.join(root,'tas-library.json');
+const jsonPath=process.env.STAR_SQUARE_TAS_OUTPUT||path.join(root,'tas-library.json');
 if(fs.existsSync(jsonPath)){const old=JSON.parse(fs.readFileSync(jsonPath,'utf8'));if(old.rulesHash===hash)library=old}
 const levels=engine.levels().filter(d=>!wanted.length||wanted.includes(d.id));
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
@@ -42,7 +42,7 @@ function forecast(st,horizon=24){
  return hazards;
 }
 function aimX(st,variant){
- const b=st.boss;if(!b)return st.player.x;
+ const b=st.boss;if(!b)return st.player.x;if(variant.frontline)return clamp(b.x,40,760);
  if(st.loadout.weapon==='seeker')return clamp(b.x*.35+260,140,660);
  const lead=Math.max(0,(st.player.y-b.y)/12),age=b.age+lead,rank=st.rank;
  if(b.style==='JACK')return 400+Math.sin(age*.012)*(24+rank*1.4);
@@ -51,7 +51,7 @@ function aimX(st,variant){
  return 400+Math.sin(age*.0035)*55;
 }
 function candidates(st,variant,ban){
- const p=st.player,hazards=forecast(st),targetX=aimX(st,variant),targetY=variant.follow?Math.max(180,(st.boss?.y||100)+variant.y):variant.y,rows=[];
+ const p=st.player,hazards=forecast(st),targetX=aimX(st,variant),targetY=variant.frontline?clamp((st.boss?.y||90)+variant.y,70,540):variant.follow?Math.max(180,(st.boss?.y||100)+variant.y):variant.y,rows=[];
  for(const [dx,dy] of directions)for(const speed of dx||dy?[1.1,2.3,5.4]:[2.3]){
   for(const dash of ((!st.isOmega||st.omega>=473)&&p.dashCooldown<=0&&!(st.mask&128)&&(dx||dy))?[false,true]:[false]){
    const mask=maskFor(dx,dy,speed)|(dash?128:0);if(ban?.has(mask))continue;
@@ -70,7 +70,7 @@ function candidates(st,variant,ban){
     }
    }
    cost+=Math.abs(x-targetX)*variant.aim+Math.abs(y-targetY)*.045;
-   cost+=Math.max(0,230-y)*.25;
+   if(!variant.frontline)cost+=Math.max(0,230-y)*.25;
    if(dash)cost+=7;
    if(dx===0&&dy===0)cost-=.15;
    cost+=Math.max(0,8-minClear)*2;
@@ -95,7 +95,7 @@ function solve(level,variant){
      result:st.result,loadout:st.loadout,planner:{decisions,rollbacks,variant}};
    }return null;
   }
-  if(st.tick>240*240||rollbacks>1800)return null;
+  if(st.tick>240*240||rollbacks>(variant.frontline?240:600))return null;
   const snap=engine.snapshot(),ban=new Set(),entry={snap,length:record.length,ban,mask:null};
   const rows=candidates(st,variant,ban);let accepted=false;
   for(const row of rows.slice(0,12)){
@@ -133,13 +133,13 @@ function save(){
  for(const [id,tape] of Object.entries(library.tapes))if(tape.seed===undefined)tape.seed=engine.seedFor(id);
  library.complete=Object.keys(library.tapes).length===engine.levels().length;
  fs.writeFileSync(jsonPath,JSON.stringify(library));
- fs.writeFileSync(path.join(root,'tas-library.js'),'window.STAR_SQUARE_TAS_LIBRARY='+JSON.stringify(library)+';\n');
+ if(!process.env.STAR_SQUARE_TAS_OUTPUT)fs.writeFileSync(path.join(root,'tas-library.js'),'window.STAR_SQUARE_TAS_LIBRARY='+JSON.stringify(library)+';\n');
 }
 const failures=[];
 for(const level of levels){
  if(library.tapes[level.id]&&!args.includes('--force')){console.log('CACHED '+level.id);continue}
  const started=Date.now();let tape=null;
- const variants=[{y:420,margin:3,aim:.028},{y:340,margin:3,aim:.04,weapon:level.rank>=2?'needle':undefined},{y:350,margin:3,aim:.2,weapon:level.rank>=2?'needle':undefined},{y:130,follow:true,margin:3,aim:.06,weapon:level.rank>=4?'fan':undefined},{y:500,margin:2,aim:.018},{y:340,margin:4,aim:.03},{y:280,margin:3,aim:.035},{y:440,margin:6,aim:.012}];
+ const variants=[{y:65,frontline:true,margin:4,aim:.18},{y:110,frontline:true,margin:4,aim:.15},{y:420,margin:3,aim:.028},{y:340,margin:3,aim:.04,weapon:level.rank>=2?'needle':undefined},{y:350,margin:3,aim:.2,weapon:level.rank>=2?'needle':undefined},{y:130,follow:true,margin:3,aim:.06,weapon:level.rank>=4?'fan':undefined},{y:500,margin:2,aim:.018},{y:340,margin:4,aim:.03},{y:280,margin:3,aim:.035},{y:440,margin:6,aim:.012}];
  if(args.includes('--aggressive'))variants.unshift({y:310,margin:3,aim:.05,weapon:level.rank>=2?'needle':undefined});
  if(args.includes('--chase'))variants.unshift({y:350,margin:3,aim:.2,weapon:level.rank>=2?'needle':undefined});
  for(const variant of variants){console.log('PLAN '+level.id+' '+JSON.stringify(variant));tape=solve(level,variant);if(tape)break}

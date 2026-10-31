@@ -7,7 +7,7 @@ const read = name => fs.readFile(path.join(root, name), 'utf8');
 const html = await read('index.html'), difficultySource = await read('difficulty.js'), archiveSource = await read('generated-archive.js'), rawCatalog = await read('difficulty-catalog.js');
 const gameSource = html.slice(html.indexOf('<script>') + 8, html.indexOf('</script>', html.indexOf('<script>'))).replace(/\r\n?/g, '\n');
 const marker = 'window.STAR_SQUARE_DIFFICULTY_CATALOG=';
-const catalog = JSON.parse(rawCatalog.slice(rawCatalog.indexOf(marker) + marker.length).trim().replace(/;$/, '')).map(({ key, version, stars, status }) => ({ key, version, stars, status }));
+const catalog = JSON.parse(rawCatalog.slice(rawCatalog.indexOf(marker) + marker.length).trim().replace(/;$/, ''));
 const server = (await read('server.js')).replace(/\r\n?/g, '\n');
 const begin = 'const server = http.createServer(async (req, res) => {';
 let routes = server.slice(server.indexOf(begin) + begin.length, server.lastIndexOf('\n});'));

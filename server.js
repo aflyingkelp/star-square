@@ -11,8 +11,14 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const dataDir = path.resolve(process.env.STAR_SQUARE_DATA_DIR || path.join(root, 'data'));
 const port = Number(process.env.PORT || 4173);
 const geoCache = new Map();
-const scoreEngine = createEngine().engine;
+const gameContext = createEngine();
+const scoreEngine = gameContext.engine;
+const difficultyAPI = gameContext.sandbox.SquareDifficulty;
 const officialLevels = new Map(scoreEngine.levels().map(level => [level.id, level]));
+const difficultyByLevel = new Map(scoreEngine.levels().map(level => {
+  const key = gameContext.sandbox.SquareDifficulty.key(level);
+  return [level.id, gameContext.sandbox.STAR_SQUARE_DIFFICULTY_CATALOG.find(result => result.key === key) || { stars: level.stars, sections: [] }];
+}));
 const cloudProxy = process.env.CLOUD_API_PROXY === '1'
   ? JSON.parse(await fs.readFile(path.join(root, 'cloud/hosting-config.json'), 'utf8')) : null;
 const requestBuckets = new Map();
@@ -194,14 +200,19 @@ function allowRequest(req, bucket, limit, intervalMs) {
   if (requestBuckets.size > 20_000) for (const [k, v] of requestBuckets) if (now - v.start > intervalMs * 2) requestBuckets.delete(k);
   return old.count <= limit;
 }
-function expectedPp(stars, hits, bombs) {
+function expectedPp(stars, hits, bombs, mods = {}, difficulty = null, legacy = false) {
+  const effectiveStars = mods.DT && !legacy
+    ? difficultyAPI.afterMods(difficulty || { stars, sections: [] }, mods).stars
+    : stars;
   const anchors = [[3.5,100],[4.3,200],[5.4,300],[6.2,400],[7,500],[7.8,600]]; let base;
-  if (stars <= anchors[0][0]) base = stars * 100 / 3.5;
-  else if (stars <= 7.8) { let i=1; while (i<anchors.length && stars>anchors[i][0]) i++; const [x0,y0]=anchors[i-1],[x1,y1]=anchors[i]; base=y0+(stars-x0)*(y1-y0)/(x1-x0); }
-  else base=600+(stars-7.8)*125;
+  if (effectiveStars <= anchors[0][0]) base = effectiveStars * 100 / 3.5;
+  else if (effectiveStars <= 7.8) { let i=1; while (i<anchors.length && effectiveStars>anchors[i][0]) i++; const [x0,y0]=anchors[i-1],[x1,y1]=anchors[i]; base=y0+(effectiveStars-x0)*(y1-y0)/(x1-x0); }
+  else base=600+(effectiveStars-7.8)*125;
   // Match the browser's starPPBase rounding before applying hit and bomb penalties.
   const roundedBase = Math.round(base * 100) / 100;
-  return Math.round(roundedBase*Math.pow(.9,hits)*Math.pow(.8,bombs)*100)/100;
+  const hrBonus = mods.HR ? .06 * Math.max(.5, 1 - Math.max(0, effectiveStars) / 20) : 0;
+  const modMultiplier = 1 + (mods.HD ? .20 : 0) + (legacy && mods.DT ? .12 : 0) + hrBonus;
+  return Math.round(roundedBase*Math.pow(.9,hits)*Math.pow(.8,bombs)*modMultiplier*100)/100;
 }
 function verifyRankedRun(score) {
   const level=officialLevels.get(score.levelId), tape=score.replay;
@@ -215,7 +226,9 @@ function verifyRankedRun(score) {
     ok=ticks===tape.ticks && state.tick===tape.ticks && !!state.result?.passed===!!score.passed && !!state.result?.passed &&
       state.hits===Number(score.hits) && state.bombs===Number(score.bombs) && state.score===Number(score.score) && state.graze===Number(score.graze) &&
       Math.abs(expectedAccuracy-Number(score.accuracy))<.011 &&
-      Math.abs(expectedPp(level.stars,state.hits,state.bombs)-Number(score.pp))<.011;
+      (Math.abs(expectedPp(level.stars,state.hits,state.bombs,score.mods||{},difficultyByLevel.get(level.id))-Number(score.pp))<.011 ||
+       Math.abs(expectedPp(level.stars,state.hits,state.bombs,score.mods||{},difficultyByLevel.get(level.id),true)-Number(score.pp))<.011 ||
+       Math.abs(expectedPp(level.stars,state.hits,state.bombs)-Number(score.pp))<.011);
   } catch { ok=false; }
   finally { try { scoreEngine.stop(); } catch {} }
   return ok;
@@ -248,7 +261,7 @@ const server = http.createServer(async (req, res) => {
     // Keep the previous address usable during migration while all public writes
     // use the same transactional cloud API as the Firebase-hosted client.
     if (cloudProxy && url.pathname.startsWith('/api/')) {
-      const payload = req.method === 'POST' ? await body(req) : null;
+      const payload = ['POST','DELETE'].includes(req.method) ? await body(req) : null;
       let verification;
       for (let step = 0; step < 160; step++) {
         const upstream = await fetch(cloudProxy.apiBase + url.pathname + url.search, {
@@ -313,6 +326,17 @@ const server = http.createServer(async (req, res) => {
       const profileId = url.searchParams.get('profileId'), levelId = url.searchParams.get('levelId');
       const scores = await readScores();
       return send(res, 200, scores.filter(row => (!profileId || row.profileId === profileId) && (!levelId || row.levelId === levelId)).sort((a,b) => String(b.createdAt).localeCompare(String(a.createdAt))).slice(0, 100));
+    }
+    if (url.pathname === '/api/scores/ln' && req.method === 'DELETE') {
+      const input = await body(req), profileId = String(input.profileId || '');
+      if (!/^[\w-]{1,80}$/.test(profileId)) return send(res, 400, { error: 'Invalid profile' });
+      const result = await mutate(async () => {
+        const scores = await readScores(), kept = scores.filter(row => row.profileId !== profileId || !/^ln[47]-/i.test(String(row.levelId || ''))), removed = scores.length - kept.length;
+        const profiles = await readProfiles(), profile = profiles[profileId];
+        if (profile) { for (const key of Object.keys(profile.bestScores || {})) if (/^ln[47]-/i.test(key)) delete profile.bestScores[key]; for (const key of Object.keys(profile.unrankedBestScores || {})) if (/^ln[47]-/i.test(key)) delete profile.unrankedBestScores[key]; profile.rankedPP=weightedPP(profile.bestScores); profile.unrankedPP=weightedPP(profile.unrankedBestScores); }
+        const lists=refreshRanks(profiles,profileId); await writeScores(kept); await writeProfiles(profiles); return {removed,rankedPP:profile?.rankedPP||0,ranks:profile?positionsFor(profile,lists):null};
+      });
+      return send(res, 200, result);
     }
     if (url.pathname === '/api/scores' && req.method === 'POST') {
       const input = await body(req), score = input.score;

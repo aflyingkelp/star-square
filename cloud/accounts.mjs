@@ -45,7 +45,7 @@ export function accountApi({database, projectUrl, secret, publicKey}) {
     const rows=await database('game_chat?select=id,username,message,created_at&order=id.desc&limit=80');return json(200,rows.reverse());
    }
    if(path==='/api/account'&&request.method==='POST')fail('Choose a new username. Existing account usernames cannot be renamed.',405);
-   const account=await identity(request);
+   const account=await identity(request);if(path==='/api/scores/ln'&&!account)fail('Sign in to delete your LN scores',403);
    if(!account)fail('Sign in to use this feature',401);
    if(path==='/api/account/logout'){
     await fetch(projectUrl+'/auth/v1/logout',{method:'POST',headers:{apikey:publicKey,Authorization:request.headers.get('authorization')}});return json(200,{ok:true});
@@ -69,9 +69,9 @@ export function accountApi({database, projectUrl, secret, publicKey}) {
  }
  // Account identities cannot be overwritten by guest /sync or score uploads.
  async function protect(request,path,input){
-  const id=path==='/api/scores'?input.score?.profileId:path==='/api/sync'?input.id:null;
+  const id=path==='/api/scores'?input.score?.profileId:path==='/api/scores/ln'?input.profileId:path==='/api/sync'?input.id:null;
   if(!id)return;
-  const account=await identity(request);
+  const account=await identity(request);if(path==='/api/scores/ln'&&!account)fail('Sign in to delete your LN scores',403);
   const owners=/^[0-9a-f]{8}-[0-9a-f-]{27}$/i.test(id)?await database('game_accounts?user_id=eq.'+encodeURIComponent(id)+'&select=user_id,username'):[];
   if(owners.length&&account?.user_id!==id)fail('Sign in to submit scores for this account',403);
   if(account){if(id!==account.user_id)fail('Score belongs to a different profile',403);if(input.score)input.score.profileName=account.username;else input.name=account.username}

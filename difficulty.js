@@ -1,12 +1,13 @@
-/* Shared deterministic pattern simulation and rank-balanced star calibration. */
+/* Shared deterministic pattern simulation and measured star ratings. */
 function squareDifficultyModule() {
   'use strict';
-  const VERSION = 'rank-curve-3';
+  const VERSION = 'measured-pattern-7';
   const names = ['Precision', 'Movement', 'Reading', 'Timing', 'Endurance'];
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   function clean(def) {
     // Cosmetic data, names, IDs, and previous ratings never affect difficulty.
     return {rank: +def.rank || 0, pressureRank: +def.pressureRank || +def.rank || 0, plus: !!def.plus, skill: def.skill || 'Fundamentals', custom: !!def.custom,
+      lnSeries:def.lnSeries||'',lnIndex:+def.lnIndex||0,lnStage:+def.lnStage||0,
       omega: !!def.omega, attacks: def.attacks || [0, 1, 2], patterns: def.patterns || null,
       timelineVersion: def.timelineVersion || 0, cadence: +def.cadence || 68,
       bulletSpeed: +def.bulletSpeed || 1, bossHp: +def.bossHp || 0};
@@ -29,19 +30,42 @@ function squareDifficultyModule() {
     return sum * .07;
   }
   function combined(skills) { return Math.pow(skills.reduce((sum, v) => sum + Math.pow(v, 2.2), 0), 1 / 2.2); }
-  function rankStars(rank) {
-    rank=clamp(Math.floor(+rank||0),0,34);
-    if(rank<=1)return 1;
-    if(rank<=20)return 1+10*(rank-1)/19;
-    return 11+33*(rank-20)/14;
-  }
   function calibrate(result,def,baselines) {
-    if(result.balanced)return result;
-    const rank=clamp(Math.floor(+def.rank||0),0,34),rawStars=Number.isFinite(+result.rawStars)?+result.rawStars:+result.stars;
-    const median=+(baselines?.[(def.plus?'plus-':'')+rank]?.median??baselines?.[rank]?.median??rawStars),adjustment=rank===0||rank===20||rank===34?0:clamp((rawStars-median)*.35,-.6,.6);
-    const plusBonus=def.plus?Math.min(4.5,1.1+(rank-11)*.15):0;
-    return {...result,rawStars,stars:Math.round((rankStars(rank)+adjustment+plusBonus)*100)/100,
-      laneAdjustment:Math.round(adjustment*100)/100,balanced:true};
+    const rawStars=Number.isFinite(+result.rawStars)?+result.rawStars:+result.stars;
+    return {...result,rawStars,stars:Math.round(Math.max(0,rawStars)*100)/100,laneAdjustment:0,balanced:true};
+  }
+  function afterMods(result,mods={}) {
+    if(!result||!mods.DT)return result;
+    const baseStars=Math.max(0,Number(result.stars)||0),sections=Array.isArray(result.sections)?result.sections:[];
+    const timed=sections.some(section=>Number.isFinite(section.window)&&section.window>0);
+    if(!timed)return {...result,baseStars,stars:Math.round(baseStars*Math.pow(1.5,.2)*100)/100,dtEstimate:'star-rate fallback'};
+    const requirement=result.requirement;
+    let dtRequirementTiming=0,dtRequirementEndurance=0;
+    if(requirement){
+      const rate=1000/Math.max(1,Number(requirement.intervalMs)||50),window=Math.max(1,Number(requirement.windowMs)||1000/240)/1.5;
+      dtRequirementTiming=Math.log2(1+100/window)*Math.sqrt(rate/2);
+      dtRequirementEndurance=dtRequirementTiming*.35*Math.sqrt(Math.log2(1+(Number(requirement.count)||1))/4);
+    }
+    const adjusted=sections.map(section=>{
+      const values=Array.isArray(section.values)?section.values.slice():[0,0,0,0,0];
+      const original=values.slice();
+      if(Number.isFinite(section.window)&&section.window>0){
+        const before=Math.log2(1+100/Math.max(4.167,section.window))*.5;
+        const faster=Math.log2(1+100/Math.max(4.167,section.window/1.5))*.5;
+        if(before>0)values[3]*=faster/before;
+      }
+      if(requirement&&section.time>=1.2&&section.time<=(288+12*472)/240){
+        values[3]=Math.max(values[3],dtRequirementTiming);
+        values[4]=Math.max(values[4],dtRequirementEndurance);
+      }
+      const oldPressure=combined(original.slice(0,4)),newPressure=combined(values.slice(0,4));
+      if(oldPressure>0)values[4]*=newPressure/oldPressure;
+      return values;
+    });
+    const skills=names.map((_,i)=>aggregate(adjusted.map(values=>values[i])));
+    if(requirement){skills[3]=Math.hypot(skills[3],dtRequirementTiming);skills[4]=Math.hypot(skills[4],dtRequirementEndurance);}
+    const stars=Math.round(Math.max(0,combined(skills))*100)/100;
+    return {...result,baseStars,stars,skills:Object.fromEntries(names.map((name,i)=>[name,Math.round(skills[i]*100)/100])),dtEstimate:'section reaction windows × 1.5'};
   }
   async function analyze(def, makeRuntime, yieldWork = () => Promise.resolve()) {
     def = clean(def);
@@ -68,7 +92,7 @@ function squareDifficultyModule() {
         if (phase !== boss.phase) { boss.phase = phase; if (timeline) boss.fire = 0; }
         if (--boss.fire <= 0) {
           rt.fire(phase);
-          const cadence = timeline ? timeline.pattern.cadence : def.custom ? def.cadence : def.skill === 'SPEED' ? 70-rank*2.7 : def.skill === 'JACK' ? 76-rank*2.8 : def.skill === 'TECH' ? 86-rank*2.9 : 94-rank*3.1;
+          const cadence = timeline ? timeline.pattern.cadence : def.custom ? def.cadence : def.lnSeries ? Math.max(15,34-def.lnIndex*1.3-def.lnStage*4.5) : def.skill === 'SPEED' ? 70-rank*2.7 : def.skill === 'JACK' ? 76-rank*2.8 : def.skill === 'TECH' ? 86-rank*2.9 : 94-rank*3.1;
           boss.fire = Math.max(15, cadence);
         }
         if (cooldown > 0) cooldown--;
@@ -138,7 +162,7 @@ function squareDifficultyModule() {
             const len=Math.hypot(best.x,best.y)||1;
             move={x:best.x/len*8.2,y:(best.x===0&&best.y===0?-1:best.y/len)*8.2,dash:12};
             invuln=20;cooldown=135;totalDash++;
-          } else if (!move.dash) move={x:best.x,y:best.y};
+          } else if (!move.dash) move={x:best.x,y:best.y,focus:!!best.focus};
           const speed=Math.hypot(move.x,move.y), reversal=lastDX*move.x+lastDY*move.y<0?1:0;
           const threatened=best.bulletClearance<55 && near.length>0;
           const squeeze=threatened?Math.log2(1+18/Math.max(.5,best.bulletClearance)):0;
@@ -161,7 +185,7 @@ function squareDifficultyModule() {
         }
         p.x=clamp(p.x+move.x,15,785);p.y=clamp(p.y+move.y,24,582);
         if(move.dash&&--move.dash<=0)move={x:0,y:0};
-        for(const b of near)if(Math.hypot(b.x-p.x,b.y-p.y)<b.r+5 && invuln===0 && frame-lastHit>1){hits++;lastHit=frame;break;}
+        for(const b of near)if(Math.hypot(b.x-p.x,b.y-p.y)<b.r+(move.focus?2.5:5) && invuln===0 && frame-lastHit>1){hits++;lastHit=frame;break;}
         if(frame%24===0||frame===frames){
           sections.push({time:frame/60,values:section,margin:Number.isFinite(sectionMargin)?sectionMargin:null,window:Number.isFinite(sectionWindow)?sectionWindow:null});
           minMargin=Math.min(minMargin,sectionMargin);timingWindow=Math.min(timingWindow,sectionWindow);
@@ -195,7 +219,7 @@ function squareDifficultyModule() {
       baseline:'No bombs; 5 px hit radius; focus 1.1, normal 2.3, sprint 5.4 px/frame; base dash; up to 100 s reference exposure at 24 DPS, at least one full animation cycle.',
       note:'Experimental estimate. Three heuristic routes; search failure does not prove impossibility. Scale awaits human play calibration.'};
   }
-  return {VERSION,names,clean,key,runtimeSource,analyze,rankStars,calibrate};
+  return {VERSION,names,clean,key,runtimeSource,analyze,calibrate,afterMods};
 }
 if(typeof module!=='undefined'&&module.exports)module.exports=squareDifficultyModule();
 if(typeof window!=='undefined')window.SquareDifficulty=squareDifficultyModule();

@@ -21,7 +21,7 @@ export function makeReplayVerifier(secret) {
     if (payload.expires < Date.now()) throw new Error('Expired checkpoint');
     return payload;
   }
-  return async function verifyReplayChunk(score, checkpoint, { scoreEngine, officialLevels, expectedPp }) {
+  return async function verifyReplayChunk(score, checkpoint, { scoreEngine, officialLevels, expectedPp, difficultyResults }) {
     const level = officialLevels.get(score.levelId), tape = score.replay;
     if (!level || !/^[0-9a-f]{8}$/i.test(String(tape?.digest || '')) || Number(score.rank) !== level.rank || Math.abs(Number(score.stars) - Number(level.stars)) > .01) return { ok: false };
     const scoreHash = hex(await crypto.subtle.digest('SHA-256', utf8.encode(JSON.stringify(score))));
@@ -59,7 +59,9 @@ export function makeReplayVerifier(secret) {
         // can vary between browser and Edge runtimes even when every score input
         // and ranked result matches. The server simulation remains authoritative:
         // require its clear, hit/bomb counts, score, graze, accuracy, and PP to match.
-        Math.abs(expectedPp(level.stars, state.hits, state.bombs) - Number(score.pp)) < .021;
+        (Math.abs(expectedPp(level.stars, state.hits, state.bombs, score.mods || {}, difficultyResults?.get(level.id)) - Number(score.pp)) < .021 ||
+         Math.abs(expectedPp(level.stars, state.hits, state.bombs, score.mods || {}, difficultyResults?.get(level.id), true) - Number(score.pp)) < .021 ||
+         Math.abs(expectedPp(level.stars, state.hits, state.bombs) - Number(score.pp)) < .021);
       scoreEngine.stop(); return { ok, complete: true };
     } catch { try { scoreEngine.stop(); } catch {} return { ok: false }; }
   };

@@ -11,7 +11,7 @@ const database = databaseClient(projectUrl, secret);
 const handle = createHandler(database);
 const accounts = accountApi({database,projectUrl,secret,publicKey:publicKeys[0]});
 const trustedProxyTokenHash = '__TRUSTED_PROXY_HASH__';
-const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'content-type,apikey,authorization', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Cache-Control': 'no-store' };
+const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'content-type,apikey,authorization', 'Access-Control-Allow-Methods': 'GET,POST,DELETE,OPTIONS', 'Cache-Control': 'no-store' };
 export async function serve(request) {
   if (request.method === 'OPTIONS') return new Response(null,{status:204,headers:cors});
   if (!publicKeys.includes(request.headers.get('apikey'))) return new Response(JSON.stringify({error:'Missing or invalid application API key'}),{status:401,headers:{...cors,'Content-Type':'application/json'}});
@@ -28,11 +28,11 @@ export async function serve(request) {
     const response=await accounts.route(request,pathname);
     return new Response(response.body,{status:response.status,headers:{...Object.fromEntries(response.headers),...cors}});
   }
-  if(request.method==='POST'&&(pathname==='/api/sync'||pathname==='/api/scores')){
+  if((request.method==='POST'&&(pathname==='/api/sync'||pathname==='/api/scores'))||(request.method==='DELETE'&&pathname==='/api/scores/ln')){
     try{
       const raw=await request.text();if(raw.length>12000000)throw Object.assign(new Error('Request too large'),{status:413});
       const input=JSON.parse(raw);await accounts.protect(request,pathname,input);
-      request=new Request(request.url,{method:'POST',headers:request.headers,body:JSON.stringify(input)});
+      request=new Request(request.url,{method:request.method,headers:request.headers,body:JSON.stringify(input)});
     }catch(error){return new Response(JSON.stringify({error:error.status?error.message:'Invalid request'}),{status:error.status||400,headers:{...cors,'Content-Type':'application/json'}})}
   }
   let status = 200, headers = {};
